@@ -1,0 +1,8 @@
+/* pages/startUp/startUp.wxss */
+.logo {
+  margin-top: 50rpx;
+  /* height: 780rpx;
+  width: 320rpx; */
+  height: 425rpx;
+  width: 425rpx;
+}
