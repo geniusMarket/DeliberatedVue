@@ -1,0 +1,8 @@
+<!--pages/startUp/startUp.wxml-->
+<view class="container" id="startup">
+
+  <view class="flex-row horizontally-center">
+    <image src="/images/logo.png" mode="aspectFit" class="logo"></image>
+  </view>
+
+</view>
