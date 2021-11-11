@@ -1,5 +1,5 @@
 <!--pages/catalogue/code/code.wxml-->
-<modal id = "modal" hidden = "{{hiddenmodalput}}" title = "输入注释" confirm-text = "确定" cancel-text = "取消" bindcancel = "cancel" bindconfirm = "confirm" > 
+<modal id = "modal" hidden = "{{hiddenmodalput}}" confirm-text = "确定" cancel-text = "取消" bindcancel = "cancel" bindconfirm = "confirm" > 
   <textarea type = 'text' class="comment" placeholder = "请输入注释" auto - focus></textarea>  
 </modal> 
 <view class="func">
@@ -7,54 +7,45 @@
   <image class="view" src="/icon/view.png" mode="aspectFit" bindtap="gotocomment"/>
   <image class="question" src="/icon/question.png" mode="aspectFit" bindtap="gotoquestion"/>
 </view>
-<view class="section" wx:if="{{flag}}">
-  <textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" />
-</view>
 <view class="code">
-  <text>function patchVnode(\n
-  oldVnode,\n
-  vnode,\n
-  insertedVnodeQueue,\n
-  ownerArray,\n
-  index,\n
-  removeOnly\n
-) {\n
-  // 老节点和新节点相同，直接返回\n
-  if (oldVnode === vnode) {\n
-    return\n
-  }\n
-\n
-  if (isDef(vnode.elm) && isDef(ownerArray)) {\n
-    // clone reused vnode\n
-    vnode = ownerArray[index] = cloneVNode(vnode)\n
-  }\n
+  <text user-select="true">function patchVnode(
+  oldVnode,
+  vnode,
+  insertedVnodeQueue,
+  ownerArray,
+  index,
+  removeOnly
+) {
+  // 老节点和新节点相同，直接返回
+  if (oldVnode === vnode) {
+    return
+  }
+  if (isDef(vnode.elm) && isDef(ownerArray)) {
+    // clone reused vnode
+    vnode = ownerArray[index] = cloneVNode(vnode)
+  }
 
-  const elm = vnode.elm = oldVnode.elm\n
+  const elm = vnode.elm = oldVnode.elm
 
-  // 异步占位符节点\n
-  if (isTrue(oldVnode.isAsyncPlaceholder)) {\n
-    if (isDef(vnode.asyncFactory.resolved)) {\n
-      hydrate(oldVnode.elm, vnode, insertedVnodeQueue)\n
-    } else {\n
-      vnode.isAsyncPlaceholder = true\n
-    }\n
-    return\n
-  }\n
+  // 异步占位符节点
+  if (isTrue(oldVnode.isAsyncPlaceholder)) {
+    if (isDef(vnode.asyncFactory.resolved)) {
+      hydrate(oldVnode.elm, vnode, insertedVnodeQueue)
+    } else {
+      vnode.isAsyncPlaceholder = true
+    }
+    return
+  }
 
-  // 跳过静态节点的更新\n
-  // reuse element for static trees.\n
-  // note we only do this if the vnode is cloned -\n
-  // if the new node is not cloned it means the render functions have been\n
-  // reset by the hot-reload-api and we need to do a proper re-render.\n
-  if (isTrue(vnode.isStatic) &&\n
-    isTrue(oldVnode.isStatic) &&\n
-    vnode.key === oldVnode.key &&\n
-    (isTrue(vnode.isCloned) || isTrue(vnode.isOnce))\n
-  ) {\n
-    // 新旧节点都是静态的而且两个节点的 key 一样，并且新节点被 clone 了 或者 新节点有 v-once指令，则重用这部分节点\n
-    vnode.componentInstance = oldVnode.componentInstance\n
-    return\n
-  }\n
+  // 跳过静态节点的更新
+  // reuse element for static trees.
+    isTrue(oldVnode.isStatic) &&vnode.key === oldVnode.key &&
+    (isTrue(vnode.isCloned) || isTrue(vnode.isOnce))
+  ) {
+    // 新旧节点都是静态的而且两个节点的 key 一样，并且新节点被 clone 了 或者 新节点有 v-once指令，则重用这部分节点
+    vnode.componentInstance = oldVnode.componentInstance
+    return
+  }
 
   // 执行组件的 prepatch 钩子
   let i
