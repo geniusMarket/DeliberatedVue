@@ -5,8 +5,11 @@
     "pages/skillTree/skillTree",
     "pages/catalogue/catalogue",
     "pages/forum/forum",
-    "pages/mine/mine"
-
+    "pages/mine/mine",
+    "pages/catalogue/code/code",
+    "pages/catalogue/comment/comment",
+    "pages/catalogue/question/question"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
