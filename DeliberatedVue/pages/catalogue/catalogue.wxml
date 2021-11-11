@@ -1,2 +1,5 @@
 <!--pages/catalogue/catalogue.wxml-->
-<text>pages/catalogue/catalogue.wxml</text>
+<text>目录</text>
+<view bindtap = 'changeId'>
+  <tree treeList="{{treeList}}" bind:treeTap="treeTap"></tree>
+</view>
