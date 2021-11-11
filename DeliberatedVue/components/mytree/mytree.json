@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "源码阅读",
+  "component": true,
   "usingComponents": {
     "tree": "/components/mytree/mytree"
   }
