@@ -1,0 +1,38 @@
+/* pages/catalogue/code/code.wxss */
+.code{
+  border: 5rpx solid #41b883;
+  border-radius: 20rpx; /*圆角*/
+  padding: 10rpx;
+  width: 600rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  margin-bottom: 40rpx;
+}
+/* .comment{
+  width: 200rpx;
+  top: 20rpx;
+} */
+.func{
+  position: relative;
+}
+.add{
+  position: fixed;
+  width: 40rpx;
+  height: 40rpx;
+  right: 20rpx;
+  top: 20rpx;
+}
+.view{
+  position: fixed;
+  width: 50rpx;
+  height: 50rpx;
+  right: 16rpx;
+  top: 135rpx;
+}
+.question{
+  position: fixed;
+  width: 38rpx;
+  height: 38rpx;
+  right: 20rpx;
+  top: 80rpx;
+}
