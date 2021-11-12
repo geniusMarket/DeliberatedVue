@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tabbar": "/components/tabbar/tabbar",
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText": "技能树"
+  
+}
