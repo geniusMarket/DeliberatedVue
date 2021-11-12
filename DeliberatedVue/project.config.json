@@ -4,10 +4,12 @@
     "ignore": []
   },
   "setting": {
+    "bundle": false,
+    "userConfirmedBundleSwitch": false,
     "urlCheck": true,
     "scopeDataCheck": false,
     "coverView": true,
-    "es6": false,
+    "es6": true,
     "postcss": true,
     "compileHotReLoad": false,
     "lazyloadPlaceholderEnable": false,
@@ -25,13 +27,15 @@
     "useApiHostProcess": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmManually": false,
+    "enableEngineNative": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.20.2",
-  "appid": "wxa4b602d497bcc6f9",
-  "projectname": "DeliberatedVue",
+  "appid": "wxb9cbbbf20877369d",
+  "projectname": "DeliberatedVue_zyq",
   "debugOptions": {
     "hidedInDevtools": []
   },
@@ -41,84 +45,26 @@
     "servePath": ""
   },
   "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "list": []
     },
-    "setting": {
-        "urlCheck": true,
-        "es6": true,
-        "enhance": true,
-        "postcss": true,
-        "preloadBackgroundData": false,
-        "minified": true,
-        "newFeature": false,
-        "coverView": true,
-        "nodeModules": false,
-        "autoAudits": false,
-        "showShadowRootInWxmlPanel": true,
-        "scopeDataCheck": false,
-        "uglifyFileName": false,
-        "checkInvalidKey": true,
-        "checkSiteMap": true,
-        "uploadWithSourceMap": true,
-        "compileHotReLoad": false,
-        "lazyloadPlaceholderEnable": false,
-        "useMultiFrameRuntime": true,
-        "useApiHook": true,
-        "useApiHostProcess": true,
-        "babelSetting": {
-            "ignore": [],
-            "disablePlugins": [],
-            "outputPath": ""
-        },
-        "enableEngineNative": false,
-        "useIsolateContext": true,
-        "userConfirmedBundleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
-        "minifyWXSS": true,
-        "disableUseStrict": false,
-        "showES6CompileOption": false,
-        "useCompilerPlugins": false
+    "conversation": {
+      "list": []
     },
-    "compileType": "miniprogram",
-    "libVersion": "2.20.2",
-    "appid": "wxb9cbbbf20877369d",
-    "projectname": "DeliberatedVue",
-    "cloudfunctionTemplateRoot": "",
-    "watchOptions": {
-        "ignore": []
+    "game": {
+      "list": []
     },
-    "debugOptions": {
-        "hidedInDevtools": []
+    "plugin": {
+      "list": []
     },
-    "scripts": {},
-    "condition": {
-        "plugin": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "gamePlugin": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": [
-                {
-                    "name": "pages/forum/forum",
-                    "pathName": "pages/forum/forum",
-                    "query": "",
-                    "scene": null
-                },
-                {
-                    "name": "pages/forum/details/details",
-                    "pathName": "pages/forum/details/details",
-                    "query": "",
-                    "scene": null
-                }
-            ]
-        }
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": []
     }
+  }
 }
