@@ -1,15 +1,15 @@
 {
-dev
   "pages":[
-    "pages/startUp/startUp",
-
     "pages/skillTree/skillTree",
+    "pages/startUp/startUp",
+    "pages/skillTree/childrenTree/childrenTree",
     "pages/catalogue/catalogue",
+    "pages/catalogue/comment/comment",
+    "pages/catalogue/question/question",
     "pages/forum/forum",
     "pages/mine/mine",
-    "pages/catalogue/code/code",
-    "pages/catalogue/comment/comment",
-    "pages/catalogue/question/question"
+    "pages/code/code"
+    
     
   ],
   "window":{
@@ -49,4 +49,3 @@ dev
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
- dev
