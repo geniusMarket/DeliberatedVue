@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/startUp/startUp",
-
     "pages/skillTree/skillTree",
     "pages/catalogue/catalogue",
     "pages/forum/forum",
