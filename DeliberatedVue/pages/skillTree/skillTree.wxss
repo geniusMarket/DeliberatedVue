@@ -1,1 +1,9 @@
 /* pages/skillTree/skillTree.wxss */
+page{
+  background-color: #153641;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}

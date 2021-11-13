@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "htmltowxml": "/html2wxml-component/html2wxml"
+    "htmltowxml": "/components/html2wxml-component/html2wxml"
   },
   "navigationBarTitleText": "查看详情" ,
   "navigationBarBackgroundColor": "#41b883"

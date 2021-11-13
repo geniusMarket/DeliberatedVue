@@ -2,12 +2,14 @@
   "pages":[
     "pages/startUp/startUp",
     "pages/skillTree/skillTree",
+    "pages/skillTree/childrenTree/childrenTree",
     "pages/catalogue/catalogue",
+    "pages/catalogue/comment/comment",
+    "pages/catalogue/question/question",
     "pages/forum/forum",
     "pages/mine/mine",
-    "pages/catalogue/code/code",
-    "pages/catalogue/comment/comment",
-    "pages/catalogue/question/question"
+    "pages/code/code"
+    
     
   ],
   "window":{
