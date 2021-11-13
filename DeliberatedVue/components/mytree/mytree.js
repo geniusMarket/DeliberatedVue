@@ -40,7 +40,7 @@ Component({
       app.globalData.codeId = e.detail.item.id;
       this.triggerEvent('treeTap', { item }); // 将当前的点击项的数据传递给父页面
       wx.navigateTo({  
-        url: '/pages/code/code'  
+        url: '/pages/catalogue/code/code'  
       }); 
     }
   }
