@@ -35,7 +35,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.20.2",
   "appid": "wxb9cbbbf20877369d",
-  "projectname": "DeliberatedVue_zyq",
+  "projectname": "DeliberatedVue",
   "debugOptions": {
     "hidedInDevtools": []
   },
