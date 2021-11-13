@@ -92,7 +92,6 @@
           <text class="confirm_text">发送</text>
         </button>
       </view>
-      <view class="sort" bindtap="mysort">排序</view>
     </view>
   </view>
 </view>

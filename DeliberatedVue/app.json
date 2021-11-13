@@ -6,9 +6,9 @@
     "pages/catalogue/catalogue",
     "pages/catalogue/comment/comment",
     "pages/catalogue/question/question",
+    "pages/catalogue/code/code",
     "pages/forum/forum",
-    "pages/mine/mine",
-    "pages/code/code"
+    "pages/mine/mine"
     
     
   ],
