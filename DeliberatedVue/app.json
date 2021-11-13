@@ -1,8 +1,6 @@
 {
-dev
   "pages":[
     "pages/startUp/startUp",
-
     "pages/skillTree/skillTree",
     "pages/catalogue/catalogue",
     "pages/forum/forum",
@@ -49,4 +47,3 @@ dev
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
- dev
