@@ -3,7 +3,7 @@
 
 .tree_container {
   background:#fff;
-  border-bottom: 1rpx solid #9fd8be;
+  /* border-bottom: 1rpx solid #9fd8be; */
   /* border-style: initial; */
 }
 .nocollapse_icon { /*展开图片*/

@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/catalogue/catalogue",
     "pages/startUp/startUp",
     "pages/skillTree/skillTree",
     "pages/skillTree/childrenTree/childrenTree",
-    "pages/catalogue/catalogue",
+    
     "pages/catalogue/comment/comment",
     "pages/catalogue/question/question",
     "pages/catalogue/code/code",
