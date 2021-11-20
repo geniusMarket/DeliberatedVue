@@ -1,10 +1,15 @@
 // pages/catalogue/comment/comment.js
+var app=getApp()
+import {addAnnotation} from "../../../api/test";
+import {selectAnnotation} from "../../../api/test";
+import {readCode} from "../../../api/test";
 var inputValue = ""
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    codeId:'',
     username:[
       {
         name:"深思熟Vue",
@@ -74,7 +79,7 @@ Page({
   ellipsis: function (e) {  
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
-    console.log(index)
+    console.log("当前点击下标:",index)
     //data中获取列表
     var value = this.data.username;
     for (let i in value){
@@ -95,7 +100,7 @@ Page({
     this.setData({
       username: value,
     }) 
-    console.log(value[index].is_show)
+    // console.log(value[index].is_show)
 
   },
   /**
@@ -135,7 +140,7 @@ Page({
   is_reply: function (e){
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
-    console.log(index)
+    // console.log(index)
     //data中获取列表
     var value = this.data.username;
     for (let i in value){
@@ -157,62 +162,66 @@ Page({
       username: value,
     })
   },
+
+  readCode:function(){  //获取源码
+    let data = {
+      "path": this.data.codeId
+    }
+    readCode("POST", data, true).then(res => {
+      console.log(res)
+      console.log(res.data.codeId)
+      this.setData({
+        VueCode:res.data.code
+      })
+    }).catch(err => {
+    console.log(err)
+  }) 
+  },
+
+  addAnnotation:function(){  //添加注释
+      //post到服务器
+      let data = {
+        "userId":"DSAsddad",
+        "filePath": this.data.codeId,
+        "moduleName": this.data.codeId,
+        "detail": "具体内容", 
+        "userId": "safsfsdsad"
+      }
+      addAnnotation("POST", data, true).then(res => {
+        console.log(res)
+        // console.log(res.data)
+      }).catch(err => {
+      console.log(err)
+    }) 
+  },
+
+  selectAnnotation:function(){ //获取注释
+    //post到服务器
+    let data = {
+      "moduleName": this.data.codeId
+    }
+    selectAnnotation("POST", data, true).then(res => {
+      console.log(res)
+      // console.log(res.data)
+    }).catch(err => {
+    console.log(err)
+  }) 
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     //点赞数从大到小排序注释
-    this.setData({
-      username: this.data.username.sort(this.compare("like_num")).reverse(),
+      this.setData({
+        username: this.data.username.sort(this.compare("like_num")).reverse(),
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      var codeId  = app.globalData.codeId
+      this.setData({
+        codeId:codeId
+        })
+      console.log(this.data.codeId)
+      this.readCode()  //获取源码
   }
+
 })
