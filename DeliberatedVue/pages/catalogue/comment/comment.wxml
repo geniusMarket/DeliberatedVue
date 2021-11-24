@@ -1,0 +1,102 @@
+<!--pages/catalogue/comment/comment.wxml-->
+<scroll-view class="code" scroll-y="true" scroll-x="true">
+  <text class="text" user-select="true">function patchVnode(
+  oldVnode,
+  vnode,
+  insertedVnodeQueue,
+  ownerArray,
+  index,
+  removeOnly
+) {
+  // 老节点和新节点相同，直接返回
+  if (oldVnode === vnode) {
+    return
+  }
+
+  if (isDef(vnode.elm) && isDef(ownerArray)) {
+    // clone reused vnode
+    vnode = ownerArray[index] = cloneVNode(vnode)
+  }
+
+  const elm = vnode.elm = oldVnode.elm
+
+  // 异步占位符节点
+  if (isTrue(oldVnode.isAsyncPlaceholder)) {
+    if (isDef(vnode.asyncFactory.resolved)) {
+      hydrate(oldVnode.elm, vnode, insertedVnodeQueue)
+    } else {
+      vnode.isAsyncPlaceholder = true
+    }
+    return
+  }
+  if (isTrue(vnode.isStatic) &&
+    isTrue(oldVnode.isStatic) &&
+    vnode.key === oldVnode.key &&
+    (isTrue(vnode.isCloned) || isTrue(vnode.isOnce))
+  ) {
+    // 新旧节点都是静态的而且两个节点的 key 一样，并且新节点被 clone 了 或者 新节点有 v-once指令，则重用这部分节点
+    vnode.componentInstance = oldVnode.componentInstance\n
+    return
+  }
+
+  // 执行组件的 prepatch 钩子
+  let i
+  const data = vnode.data
+  if (isDef(data) && isDef(i = data.hook) && isDef(i = i.prepatch)) {
+    i(oldVnode, vnode)
+  }</text>
+</scroll-view>
+<view class="comment">
+  <image class="userImg" src="/images/v2_qbsucr.png" mode="scaleToFill"/>
+  <view class="commentin">
+  <input type="text" class="comment" bindinput="bindKeyInput" placeholder="请输入注释"></input>
+  </view>
+  <button class="confirm" size="mini">
+  <text class="confirm_text">发表注释</text>
+  </button>
+</view>
+<view class="view_comment">
+  <view class="usercomment" wx:for="{{username}}" wx:key="name" data-index="{{index}}">
+    <image class="userImg" src="/images/v2_r1z3ud.jpg" mode="scaleToFill"/>
+    <view class="rightbox">
+      <text class="username">{{item.name}}</text>
+      <text class="comment_text {{item.ellipsis?'ellipsis':'unellipsis'}}">{{item.comment_text}}</text>
+      <view class='bg-white-ellipsis' bindtap='ellipsis' data-index="{{index}}">
+        <text class="show">{{item.is_show}}</text>
+      </view>
+      <view class="likeareply">
+        <text class="pub_time">{{item.pub_time}}</text>
+        <view class="reply" data-index="{{index}}">
+          <image class="replyimg" src="{{item.reply_src}}" mode="scaleToFill" data-index="{{index}}" bindtap="is_reply" />
+        </view>
+        <view class="like" data-index="{{index}}">
+          <image class="likeimg" src="{{item.like_src}}" mode="scaleToFill" bindtap="is_like" data-index="{{index}}"/>
+          <text class="like_num" bindtap="is_like" data-index="{{index}}">{{item.like_num}}</text>
+        </view>
+      </view>   
+      <view class="userreply">
+        <view class="user">
+          <image class="userreplyImg" src="/images/v2_r1z3xx.jpg" mode="scaleToFill"/>
+          <text class="userreplyname">{{item.username_reply}}</text>
+        </view>
+        <view class="replydetail">
+          <text class="comment_text">{{item.reply_text}}</text>
+        </view>
+        <!-- <view class='bg-white-ellipsis' bindtap='ellipsis'>
+          <text class="show">{{item.is_show}}</text>
+         </view> -->
+      </view>
+      <view class="replybox" wx:if="{{item.is_reply}}">
+        <input type="text" class="replyinput" bindinput="bindKeyInput" placeholder="@{{item.name}}"></input>
+        <button class="replyconfirm" size="mini">
+          <text class="confirm_text">发送</text>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+

@@ -1,0 +1,24 @@
+<!--pages/favorite.wxml-->
+<view wx:for{{postList}} class="article">
+    <navigator class="postBox" url="./details/details">
+    <image src="/icon/article.png" mode="aspectFit" class="article"></image>
+    <text class="title">Vue.js是什么?</text>
+    <image src="/icon/collected.png" mode="aspectFit" class="collected"></image>
+    <view>
+        <text class="username">墨刀的刀</text>
+        <text class="date" decode="{{true}}">&nbsp;2021-09-15</text>
+    </view>
+</navigator>
+</view>
+<view class="code">
+    <image src="/icon/code.png" mode="aspectFit" class="code"></image>
+    <text class="title">Vue.common.js</text>
+    <image src="/icon/collected.png" mode="aspectFit" class="collected"></image>
+    <view>
+        <text class="username">墨刀的刀</text>
+        <text class="date" decode="{{true}}">&nbsp;2021-09-15</text>
+    </view>
+</view>
+<view wx:for="{{arr}}" wx:key="index" class="test">
+    {{index}}:{{item}}
+</view>

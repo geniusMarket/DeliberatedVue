@@ -1,0 +1,12 @@
+<!--pages/mine/history/history.wxml-->
+<view class="info">
+<image class="avatar" src="{{avatarUrl}}"></image>
+<text decode="{{true}}">&nbsp;&nbsp;userName</text>
+</view>
+<view class="historyList" wx:for="{{history}}">
+    <view class="date">{{item.date}}</view>
+    <view class="detailList" wx:for="{{item.detail}}">
+        <image class="Icon" src="../../../icon/history.png"></image>
+        <text decode="{{true}}" class="title">&nbsp;&nbsp;{{item.title}}</text>
+    </view>
+</view>

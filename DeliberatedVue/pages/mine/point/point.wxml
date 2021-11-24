@@ -1,0 +1,27 @@
+<!--pages/mine/point/point.wxml-->
+<view class="pointList" wx:for="{{point}}">
+    <view class="date">{{item.date}}</view>
+    <view class="detailList" wx:for="{{item.detail}}">
+        <view wx:if="{{item.type == 1}}">
+            <image class="Icon" src="../../../icon/forum.png"></image>
+            <text class="type">发表注释</text>
+            <view class="time">{{item.time}}</view>
+            <view class="pointChanged">{{item.pointChanged}}</view>
+            <text decode="{{true}}"  class="pointRemain" >积分余额&nbsp;{{item.pointRemain}}</text>
+        </view>
+        <view wx:if="{{item.type == 2}}">
+            <image class="Icon" src="../../../icon/forum.png"></image>
+            <text class="type">回答问题</text>
+            <view class="time">{{item.time}}</view>
+            <view class="pointChanged">{{item.pointChanged}}</view>
+            <text decode="{{true}}"  class="pointRemain" >积分余额&nbsp;{{item.pointRemain}}</text>
+        </view>
+        <view wx:if="{{item.type == 3}}">
+            <image class="Icon" src="../../../icon/questions1.png"></image>
+            <text class="type">发起提问</text>
+            <view class="time">{{item.time}}</view>
+            <view class="pointChanged1">{{item.pointChanged}}</view>
+            <text decode="{{true}}"  class="pointRemain" >积分余额&nbsp;{{item.pointRemain}}</text>
+        </view>
+    </view>
+</view>

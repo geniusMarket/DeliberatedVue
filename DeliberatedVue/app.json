@@ -1,47 +1,56 @@
 {
-  "pages":[
-    "pages/startUp/startUp",
-
-    "pages/skillTree/skillTree",
-    "pages/catalogue/catalogue",
-    "pages/forum/forum",
-    "pages/mine/mine"
-
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle":"black"
-  },
-  "tabBar": {
-    "list": [
-        {
-            "selectedIconPath": "icon/selectedSkillTree.png", 
-            "iconPath": "icon/skillTree.png",
-            "pagePath": "pages/skillTree/skillTree",
-            "text": "技能树"
-        },
-    
-        {
-            "selectedIconPath": "icon/selectedCatalogue.png", 
-            "iconPath": "icon/catalogue.png",
-            "pagePath": "pages/catalogue/catalogue",
-            "text": "源码阅读"
-        },
-        {
-            "selectedIconPath": "icon/selectedForum.png", 
-            "iconPath": "icon/forum.png",
-            "pagePath": "pages/forum/forum",
-            "text": "社区"
-        },
-        {
-            "selectedIconPath": "icon/selectedMine.png", 
-            "iconPath": "icon/mine.png",
-            "pagePath": "pages/mine/mine",
-            "text": "个人中心"
-        }
-    ]
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/mine/fan/fan",
+        "pages/skillTree/skillTree",
+        "pages/mine/mine",
+        "pages/startUp/startUp",
+        "pages/skillTree/childrenTree/childrenTree",
+        "pages/catalogue/catalogue",
+        "pages/catalogue/comment/comment",
+        "pages/catalogue/question/question",
+        "pages/catalogue/code/code",
+        "pages/forum/forum",
+       
+        "pages/mine/point/point",
+        "pages/mine/edit/edit",
+        "pages/mine/favorite/favorite",
+        "pages/mine/history/history",
+        "pages/mine/question/question"
+        
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#f8f8f8",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "selectedIconPath": "icon/selectedSkillTree.png",
+                "iconPath": "icon/skillTree.png",
+                "pagePath": "pages/skillTree/skillTree",
+                "text": "技能树"
+            },
+            {
+                "selectedIconPath": "icon/selectedCatalogue.png",
+                "iconPath": "icon/catalogue.png",
+                "pagePath": "pages/catalogue/catalogue",
+                "text": "源码阅读"
+            },
+            {
+                "selectedIconPath": "icon/selectedForum.png",
+                "iconPath": "icon/forum.png",
+                "pagePath": "pages/forum/forum",
+                "text": "社区"
+            },
+            {
+                "selectedIconPath": "icon/selectedMine.png",
+                "iconPath": "icon/mine.png",
+                "pagePath": "pages/mine/mine",
+                "text": "个人中心"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

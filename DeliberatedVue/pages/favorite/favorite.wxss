@@ -1,0 +1,90 @@
+/* pages/favorite.wxss */
+.article{
+    /* 文章总体 */
+    background-color: #ecf8f3;
+    height: 140rpx;
+    position: relative;
+}
+.article .article{
+    /* 文章图标 */
+    width: 75rpx;
+    height: 75rpx;
+    position: relative;
+    top: 10rpx;
+}
+.article .title{
+    /* 标题 */
+    font-size:90%;
+    position: relative;
+    left: 15rpx;
+    bottom: 15rpx;
+}
+.article .username{
+    /* 用户名 */
+    font-size: 50%;
+    position: relative;
+    left: 10rpx;
+    bottom: 10rpx;
+}
+.article .date{
+    /* 日期 */
+    font-size: 50%;
+    position: relative;
+    left: 10rpx;
+    bottom: 10rpx;
+}
+.article .collected{
+    /* 收藏图标 */
+    width: 45rpx;
+    height: 45rpx;
+    position: relative;
+    left: 400rpx;
+    bottom:20rpx;
+}
+
+
+.code{
+    /* 代码总体 */
+    background-color: #ecf8f3;
+    height: 140rpx;
+    position: relative;
+    top: 20rpx;
+}
+.code .code{
+    /* 文章图标 */
+    width: 75rpx;
+    height: 75rpx;
+    position: relative;
+    top: 10rpx;
+}
+.code .title{
+    /* 标题 */
+    font-size:90%;
+    position: relative;
+    left: 15rpx;
+    bottom: 15rpx;
+}
+.code .username{
+    /* 用户名 */
+    font-size: 50%;
+    position: relative;
+    left: 10rpx;
+    bottom: 10rpx;
+}
+.code .date{
+    /* 日期 */
+    font-size: 50%;
+    position: relative;
+    left: 10rpx;
+    bottom: 10rpx;
+}
+.code .collected{
+    /* 收藏图标 */
+    width: 45rpx;
+    height: 45rpx;
+   text-align: right;
+}
+
+.test {
+    margin-bottom: 50rpx;
+}
