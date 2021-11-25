@@ -53,13 +53,13 @@ Page({
         this.setData({
           codeId:this.codeId
           })
-      console.log(this.codeId)
+      console.log('源码路径：',this.codeId)
       let data = {
         "path": this.codeId
       }
       readCode("POST", data, true).then(res => {
-        console.log(res)
-        console.log(res.data.codeId)
+        // console.log(res)
+        // console.log(res.data.codeId)
         this.setData({
           VueCode:res.data.code
         })
