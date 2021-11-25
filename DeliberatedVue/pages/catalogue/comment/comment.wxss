@@ -11,6 +11,7 @@
 }
 .comment{
   display: flex; /*设置为可并排*/
+  flex-direction: row;
   align-items: flex-start;
 }
 .userImg{
@@ -28,12 +29,27 @@
   height: 50rpx;
   margin-left: 25rpx;
 }
+
+.confirm_button{
+  margin-right: 10rpx;
+}
+
+.all{
+  position: absolute;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+
+}
 .confirm{
-  background-color: #41b883;
+  background:rgba(65,184,131,0.6);
   border-radius: 20rpx;
   height: 70rpx;
-  width: 100rpx;
-  margin-top: 2rpx;
+  width: 130rpx;
+  margin-left: 30rpx;
+  font-weight: 400;
+
 }
 .confirm_text{
   color: white;
@@ -84,7 +100,7 @@
 }
 .reply{
   display: flex;
-  margin-left: 370rpx;
+  margin-left: 330rpx;
   margin-top: 8rpx;
 }
 .replyimg{
@@ -111,6 +127,7 @@
 }
 .replybox{
   display: flex;
+  flex-direction: row;
   margin-top: 15rpx;
   margin-left: 1rpx;
   margin-bottom: 10rpx;
@@ -120,15 +137,23 @@
   border-radius: 25rpx; /*圆角*/
   padding: 10rpx;
   width: 450rpx;
-  height: 30rpx;
+  height: 40rpx;
 }
 .replyconfirm{
   background-color: #41b883;
   border-radius: 25rpx;
   height: 60rpx;
-  margin-top: 4rpx;
-  margin-left: 15rpx;
+  margin-left: 8rpx; 
+  font-weight: 300;
+  font-size: small;
 }
+.form{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+
 .user{
   display: flex;
 }
