@@ -1,49 +1,38 @@
-<!--pages/forum/forum.wxml-->
+<!--pages/forum/search/search.wxml-->
 <view class="searchBox">
     <view class="searchIconBox">
         <image src="/icon/searchicon.png" mode="heightFix"></image>
     </view>
-    <view class="searchButtonBox" bindtap="toSearch">
+    <view class="searchButtonBox">
         <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" />
         <!-- <text style="color: #929292;">请输入查找内容</text> -->
     </view>
+    <text decode="{{true}}" class="searchText">&nbsp;&nbsp;搜索</text>
 </view>
 
-<view class="userBox">
-    <view class="userInform">
-        <view class="headpicBox">
-            <image src="/images/headpic.png" mode="heightFix"></image>
-        </view>
-        <view class="usernameBox">
-            <text>userName</text>
-        </view>
-    </view>
-    <view class="myQuestion">
-        <text style="color: #606060;">我的问答 ></text>
-    </view>
+<view class="blank"></view>
+<view class="historyList" wx:for="{{searchRes}}" wx:key="index" bindtap="toDetail" data-resid="{{item.id}}">
+    <image class="Icon" src="../../../icon/history.png"></image>
+    <text decode="{{true}}" class="title">&nbsp;&nbsp;{{item.title}}</text>
+</view>
+<view class="moreSearchHistory">
+    <text>更多搜索记录>></text>
 </view>
 
-<view class="kindBox">
-    <view class="theLast">
-        <text>最新</text>
-        <view class="underLine"></view>
-    </view>
+<view class="topSearched">
+    <image src="/icon/searchicon.png" class="searchIcon"></image>
+    <text class="topSearchedText">热搜榜</text>
 </view>
-
-<view class="fillBox"></view>
-<view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
+<view class="topSearchedList"></view>
+<view class="postBoxOuter" wx:for="{{postList}}" wx:key="id">
     <navigator class="postBox" url="./details/details">
         <view class="postTitle">
-            <view>  Vue.js 是什么？ </view>
-            <view class="pointBox">
-                <image src="../../icon/points.png" mode="heightFix"></image>
-                <text style="color: #FFD700;">20</text>
-            </view>
+            <view>  {{item.title}} </view>
         </view>
         <view class="taberBox">
             <view class="outTaber">
                 <view class="taberIconBox">
-                    <image src="../../icon/like.png" mode="heightFix"></image>
+                    <image src="../../../icon/like.png" mode="heightFix"></image>
                 </view>
                 <view class="taberTextBox">
                     <text>点赞</text>
@@ -51,7 +40,7 @@
             </view>
             <view class="outTaber">
                 <view class="taberIconBox">
-                    <image src="../../icon/reward.png" mode="heightFix"></image>
+                    <image src="../../../icon/reward.png" mode="heightFix"></image>
                 </view>
                 <view class="taberTextBox">
                     <text>打赏</text>
@@ -59,7 +48,7 @@
             </view>
             <view class="outTaber">
                 <view class="taberIconBox">
-                    <image src="../../icon/comment.png" mode="heightFix"></image>
+                    <image src="../../../icon/comment.png" mode="heightFix"></image>
                 </view>
                 <view class="taberTextBox">
                     <text>评论</text>
@@ -68,11 +57,9 @@
         </view>
     </navigator>
 </view>
-<view class="fillBox"></view>
-
 <view class="newPostBox">
     <view class="newPostIconBox">
-        <image src="../../icon/newPost.png" mode="heightFix"></image>
+        <image src="../../../icon/newPost.png" mode="heightFix"></image>
     </view>
     <text>发帖</text>
 </view>

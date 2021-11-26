@@ -1,0 +1,13 @@
+<!--pages/mine/favorite/favorite.wxml-->
+<view class="favoriteList" wx:for="{{collect}}" wx:key="index">
+    <navigator url="{{item.url}}">
+        <image wx:if="{{item.status == 1}}" class="Icon" src="../../../icon/catalogue.png"></image>
+        <image wx:if="{{item.status == 2}}" class="Icon" src="../../../icon/code.png"></image>
+        <text class="title" decode="{{true}}">&nbsp;&nbsp;{{item.title}}</text>
+        <view class="info">
+            <text decode="{{true}}" class="nickName">&nbsp;&nbsp;{{item.nickName}}</text>
+            <text decode="{{true}}" class="date">&nbsp;&nbsp;{{item.date}}</text>
+        </view>
+        <image bindtap="dealFavorite" class="collected" src="../../../icon/collected.png"></image>
+    </navigator>
+</view>

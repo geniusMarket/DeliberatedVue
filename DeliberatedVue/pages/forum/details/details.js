@@ -1,19 +1,37 @@
+
+import {
+  getArticle
+} from "../../../api/forum"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    articleId: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      articleId: parseInt(options.resid)
+    })
+    console.log(typeof(this.data.articleId))
+    this.getArticle()
   },
-
+  getArticle() {
+    let data = {
+        "articleId": this.data.articleId
+    }
+    console.log(data)
+    getArticle("POST", data, true).then(res => {
+        console.log(res)
+    }).catch(err => {
+        console.log(err)
+    })
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

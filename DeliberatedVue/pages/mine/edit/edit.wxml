@@ -1,0 +1,24 @@
+<!--pages/mine/edit/edit.wxml-->
+<view class="avatarInfo">
+    <view>
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <view class="changeAvatar">点击头像更换图片</view>
+</view>
+<view class="nickNameInfo">
+    <view class="nickName">昵称：{{userInfo.nickName}}</view>
+    <view class="change">
+        <image class="changeIcon" src="../../../icon/change.png"></image>
+        <text decode="{{true}}" class="changeText">&nbsp;修改</text>
+    </view>
+</view>
+<view class="introInfo">
+    <view class="intro">简介：{{myInfo.intro}}</view>
+    <view class="edit">
+        <image class="editIcon" src="../../../icon/edit.png"></image>
+        <text decode="{{true}}" class="editText">&nbsp;编辑</text>
+    </view>
+</view>
+<view class="save">
+    <text class="saveText">保存更改</text>
+</view>
