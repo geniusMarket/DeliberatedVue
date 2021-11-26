@@ -1,0 +1,62 @@
+.titleContainer{
+    height: 75rpx;
+    width: 86%;
+    margin-left: 7%;
+    margin-top: 10rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.titleContainer .titleBox{
+    width: 65%;
+    height: 60rpx;
+    border: 2rpx solid grey;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.titleContainer .sendBox{
+    height: 60rpx;
+    width: 100rpx;
+    border-radius: 40rpx;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2rpx solid grey;
+}
+
+.editContainer{
+    height: 100rpx;
+    width: 86%;
+    margin-left: 7%;
+    margin-top: 12rpx;
+    margin-bottom: 12rpx;
+    border-radius: 20rpx;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e0f6f2;
+}
+.editContainer .editBox{
+    height: 80rpx;
+    width: 80rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25rpx;
+}
+
+.mainContianer{
+    border: 10rpx solid grey;
+    border-radius: 30rpx;
+    width: 90%;
+    height: 80%;
+    margin-left: 5%;
+}
+.mainContianer .textBody{
+    height: 900rpx;
+}

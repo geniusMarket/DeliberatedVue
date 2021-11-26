@@ -1,0 +1,114 @@
+/* pages/mine/edit/edit.wxss */
+
+/* 头像和下面的文字整体 */
+.avatarInfo {
+    height: 270rpx;
+    font-size: 13px;
+    border: 1px solid #d4d4d4;
+}
+
+/* 头像 */
+.avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border: 1.5px solid #58c192;
+    border-radius: 50%;
+    position: absolute;
+    left: 280rpx;
+    top: 50rpx;
+}
+
+/* 更换头像文本文字 */
+.changeAvatar {
+    position: absolute;
+    left: 240rpx;
+    top: 185rpx;
+}
+
+/* 昵称栏 */
+.nickNameInfo {
+    padding: 20rpx;
+    border: 1px solid #d4d4d4;
+    position: relative;
+}
+
+/* 昵称 */
+.nickName {
+    font-size: 15px;
+}
+
+/* 修改按钮 */
+.change {
+    background-color: #b3e3cd;
+    width: 115rpx;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 30rpx;
+    font-size: 11px;
+    margin: 8rpx;
+    position: absolute;
+    right: 10rpx;
+    top: 5rpx;
+    display: inline;
+    padding: 4rpx;
+    text-align: center;
+}
+
+/* 修改图标 */
+.changeIcon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.introInfo {
+    /* 简介栏 */
+    padding: 20rpx;
+    border: 1px solid #d4d4d4;
+    position: relative;
+}
+
+/* 简介 */
+.intro {
+    font-size: 15px;
+}
+
+/* 编辑图标 */
+.editIcon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* 编辑按钮 */
+.edit {
+    background-color: #b3e3cd;
+    width: 115rpx;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 30rpx;
+    font-size: 11px;
+    margin: 8rpx;
+    position: absolute;
+    right: 10rpx;
+    top: 5rpx;
+    display: inline;
+    padding: 4rpx;
+    text-align: center;
+}
+
+/* 保存更改按钮 */
+.save {
+    background-color: #b3e3cd;
+    height: 60rpx;
+    width: 190rpx;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 30rpx;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 580rpx;
+    left: 250rpx;
+}
+
+/* 保存更改文本文字 */
+.saveText {
+    padding-top: 10rpx;
+}

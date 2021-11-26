@@ -1,1 +1,189 @@
 /* pages/mine/mine.wxss */
+.top {
+    height: 240rpx;
+    width: 92%;
+    border: 1px solid #bdebe3;
+    border-radius: 7px;
+    padding: 15rpx 30rpx;
+
+}
+
+.avatar {
+    width: 130rpx;
+    height: 130rpx;
+    border-radius: 50%;
+}
+
+.nickName {
+    position: absolute;
+    left: 200rpx;
+    top: 0;
+    font-size: 20px;
+}
+
+.intro {
+    position: absolute;
+    left: 200rpx;
+    top: 70rpx;
+    font-size: 15px;
+}
+
+.follower {
+    position: absolute;
+    left: 250rpx;
+    top: 150rpx;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fans {
+    position: absolute;
+    left: 350rpx;
+    top: 150rpx;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.points {
+    position: absolute;
+    left: 450rpx;
+    top: 150rpx;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit {
+    background-color: #93d7b8;
+    height: 40rpx;
+    width: 140rpx;
+    border-radius: 50rpx;
+    position: absolute;
+    left: 580rpx;
+    top: 25rpx;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rpx 0 0 0;
+}
+
+.middle {
+    background-color: #e3f4ec;
+    height: 120rpx;
+    width: 100%;
+    border-radius: 60rpx;
+    /* position: absolute;
+    left: 580rpx;
+    top: 25rpx; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 7rpx 0 0 0;
+    margin-top: 10rpx;
+}
+
+.favorite {
+    position: absolute;
+    left: 130rpx;
+    top: 295rpx;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favoriteImg {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.myQuestion {
+    position: absolute;
+    left: 320rpx;
+    top: 300rpx;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myQuestionImg {
+    width: 55rpx;
+    height: 55rpx;
+}
+
+.history {
+    position: absolute;
+    left: 550rpx;
+    top: 295rpx;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.historyImg {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.bottom {
+    padding-top: 50rpx;
+    height: 120rpx;
+    width: 100%;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 0 0 10rpx 30rpx;
+}
+
+.contactImg {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.contactText {
+    padding: 5rpx, 5rpx;
+    font-size: 12px;
+}
+
+.share {
+    border: 1px solid #d2d6dd;
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 30rpx;
+}
+
+.shareImg {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.shareText {
+    padding: 5rpx, 5rpx;
+    font-size: 14px;
+}
+
+.aboutUs {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0 0 30rpx;
+}
+
+.aboutUsImg {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.aboutUsText {
+    font-size: 14px;
+}

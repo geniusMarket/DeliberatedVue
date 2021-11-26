@@ -1,1 +1,179 @@
 /* pages/forum/forum.wxss */
+.searchBox{
+    height: 100rpx; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ebebed;
+}
+.searchBox .searchIconBox{
+    height: 50rpx; 
+    width: 65rpx;
+    position: relative;
+    margin-top: 5rpx;
+}
+.searchBox .searchIconBox image{
+    height: 100%;
+}
+.searchBox .searchButtonBox{
+    height: 65rpx;
+    width: 75%;
+    padding-left: 3%;
+    background-color: white;
+    border-radius: 40rpx;
+    border: 2rpx solid #bbbbbb;
+    display: flex;
+    align-items: center;
+}
+
+.userBox{
+    height: 80rpx; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: #d4d4d8 solid 5rpx;
+}
+.userBox .userInform{
+    height: 75rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userBox .userInform .headpicBox{
+    height: 60rpx; 
+    width: 80rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.userBox .userInform .headpicBox image{
+    height: 100%;
+}
+.userBox .myQuestion{
+    width: 200rpx;
+    height: 70%;
+    margin-right: 20rpx;
+    border-radius: 40rpx;
+    background-color: #80d0ac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kindBox{
+    height: 64rpx;
+    width: 98%;
+    margin-top: 2rpx;
+    margin-left: 1%;
+    background-color: #fffdfd;
+    border: 2rpx solid #bbbbbb;
+}
+.kindBox .theLast{
+    margin-top: 8rpx;
+    height: 50rpx;
+    width: 100rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: medium;
+}
+.underLine{
+    height: 6rpx;
+    width: 70rpx;
+    background-color: black;
+}
+
+.fillBox{
+    height: 15rpx;
+}
+.postBoxOuter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200rpx;
+    width: 100%;
+}
+.postBoxOuter .postBox{
+    height: 170rpx;
+    width: 95%;
+    border-radius: 15rpx;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.postBoxOuter .postBox .postTitle{
+    height: 50rpx;
+    font-size: medium;
+    margin-top: 15rpx;
+    padding-left: 40rpx;
+    display: flex;
+    flex-direction: row;
+}
+.postBoxOuter .postBox .postTitle .pointBox{
+    height: 45rpx;
+    width: 100rpx;
+    margin-bottom: 5rpx;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+.postBoxOuter .postBox .postTitle .pointBox image{
+    height: 100%;
+    margin-right: 5rpx;
+}
+.postBoxOuter .postBox .taberBox{
+    height: 40rpx;
+    position: absolute;
+    right: 12rpx;
+    bottom: 15rpx;
+    display: flex;
+    flex-direction: row;
+}
+.postBoxOuter .postBox .taberBox .outTaber{
+    height: 37rpx;
+    width: 135rpx;
+    display: flex;
+    flex-direction: row;
+}
+.postBoxOuter .postBox .taberBox .outTaber .taberIconBox{
+    height: 100%;
+    width: 60rpx;
+    display: flex;
+    justify-content: center;
+}
+.postBoxOuter .postBox .taberBox .outTaber .taberIconBox image{
+    height: 100%;
+}
+.postBoxOuter .postBox .taberBox .outTaber .taberTextBox{
+    font-size: small;
+}
+
+.newPostBox{
+    height: 145rpx;
+    width: 145rpx;
+    border-radius: 50%;
+    background-color: #a2d9c0;
+    font-size: 32rpx;
+    position: fixed;
+    bottom: 30rpx;
+    right: 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.newPostBox .newPostIconBox{
+    height: 75rpx;
+    width: 75rpx;
+}
+.newPostBox .newPostIconBox image{
+    height: 100%;
+}

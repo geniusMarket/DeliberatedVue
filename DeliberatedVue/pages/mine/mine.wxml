@@ -1,2 +1,47 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="top">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="nickName">{{userInfo.nickName}}</view>
+    <view class="intro">{{myInfo.intro}}</view>
+    <view class="follower" bindtap="toFollower">
+        <view class="followerNumber">5</view>
+        <text class="followerText">关注</text>
+    </view>
+    <view class="fans" bindtap="toFan">
+        <view class="fansNumber">10</view>
+        <text class="fansText">粉丝</text>
+    </view>
+    <view class="points" bindtap="toPoint">
+        <view class="pointsNumber">100</view>
+        <text class="pointsText">积分</text>
+    </view>
+    <view class="edit" bindtap="toEdit">编辑资料</view>
+</view>
+<view class="middle">
+    <view class="favorite" bindtap="toFavorite">
+        <image class="favoriteImg" src="../../icon/favorite.png"></image>
+        <view class="favoriteText">收藏夹</view>
+    </view>
+    <view class="myQuestion" bindtap="toQuestion">
+        <image class="myQuestionImg" src="../../icon/myQuestion.png"></image>
+        <view class="myQuestionText">我的提问</view>
+    </view>
+    <view class="history" bindtap="toHistory">
+        <image class="historyImg" src="../../icon/history.png"></image>
+        <view class="historyText">浏览历史</view>
+    </view>
+</view>
+<view class="bottom">
+    <view class="contact">
+        <image class="contactImg" src="../../icon/contact.png"></image>
+        <text class="contactText" decode="{{true}}">&nbsp;&nbsp;&nbsp;联系我们</text>
+    </view>
+    <view class="share">
+        <image class="shareImg" src="../../icon/share.png"></image>
+        <text class="shareText" decode="{{true}}">&nbsp;&nbsp;&nbsp;分享</text>
+    </view>
+    <view class="aboutUs">
+        <image class="aboutUsImg" src="../../icon/aboutUs.png"></image>
+        <text class="aboutUsText" decode="{{true}}">&nbsp;&nbsp;&nbsp;关于我们</text>
+    </view>
+</view>

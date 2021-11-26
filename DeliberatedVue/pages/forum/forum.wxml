@@ -1,2 +1,80 @@
 <!--pages/forum/forum.wxml-->
-<text>pages/forum/forum.wxml</text>
+<view class="searchBox">
+    <view class="searchIconBox">
+        <image src="/icon/searchicon.png" mode="heightFix"></image>
+    </view>
+    <view class="searchButtonBox" bindtap="toSearch">
+        <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" />
+        <!-- <text style="color: #929292;">请输入查找内容</text> -->
+    </view>
+</view>
+
+<view class="userBox">
+    <view class="userInform">
+        <view class="headpicBox">
+            <image src="/images/headpic.png" mode="heightFix"></image>
+        </view>
+        <view class="usernameBox">
+            <text>userName</text>
+        </view>
+    </view>
+    <view class="myQuestion">
+        <text style="color: #606060;">我的问答 ></text>
+    </view>
+</view>
+
+<view class="kindBox">
+    <view class="theLast">
+        <text>最新</text>
+        <view class="underLine"></view>
+    </view>
+</view>
+
+<view class="fillBox"></view>
+<view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
+
+    <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}">
+
+        <view class="postTitle">
+            <view>{{item.data.title}}</view>
+            <view class="pointBox">
+                <image src="../../icon/points.png" mode="heightFix"></image>
+                <text style="color: #FFD700;">20</text>
+            </view>
+        </view>
+        <view class="taberBox">
+            <view class="outTaber">
+                <view class="taberIconBox">
+                    <image src="../../icon/like.png" mode="heightFix"></image>
+                </view>
+                <view class="taberTextBox">
+                    <text>点赞</text>
+                </view>
+            </view>
+            <view class="outTaber">
+                <view class="taberIconBox">
+                    <image src="../../icon/reward.png" mode="heightFix"></image>
+                </view>
+                <view class="taberTextBox">
+                    <text>打赏</text>
+                </view>
+            </view>
+            <view class="outTaber">
+                <view class="taberIconBox">
+                    <image src="../../icon/comment.png" mode="heightFix"></image>
+                </view>
+                <view class="taberTextBox">
+                    <text>评论</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</view>
+<view class="fillBox"></view>
+
+<navigator url="../forum/posting/posting" class="newPostBox">
+    <view class="newPostIconBox">
+        <image src="../../icon/newPost.png" mode="heightFix"></image>
+    </view>
+    <text>发帖</text>
+</navigator>

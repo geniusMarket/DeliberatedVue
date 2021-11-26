@@ -1,6 +1,7 @@
-// const baseUrl = "https://geniusmarket.top:9500/"
+const baseUrl = "https://geniusmarket.top/"
+
 // const baseUrl = "http://localhost:8081/"
-const baseUrl = "http://121.41.25.13:9500/"
+// const baseUrl = "http://121.41.25.13:9500/"
 
 function baseRequest(url, method, data, loading, header) {
   return new Promise((resolve, reject) => {

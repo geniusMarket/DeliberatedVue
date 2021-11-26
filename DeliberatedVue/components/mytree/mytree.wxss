@@ -1,0 +1,22 @@
+/* pages/mytree/mytree.wxss */
+@import '/weui.wxss'; 
+
+.tree_container {
+  background:#fff;
+  /* border-bottom: 1rpx solid #9fd8be; */
+  /* border-style: initial; */
+}
+.nocollapse_icon { /*展开图片*/
+  transform: rotate(90deg);
+}
+.tree_text {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+  font-size: 28rpx;
+  font-weight: 180;
+  font-family: Arial, Helvetica, sans-serif;
+}

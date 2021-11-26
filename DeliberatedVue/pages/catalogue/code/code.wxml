@@ -1,0 +1,27 @@
+<!--pages/catalogue/code/code.wxml-->
+<!-- <modal id = "modal" hidden = "{{hiddenmodalput}}" confirm-text = "确定" cancel-text = "取消" bindcancel = "cancel" bindconfirm = "confirm" > 
+  <textarea type = 'text' class="comment" placeholder = "请输入注释" auto - focus></textarea>  
+</modal>  -->
+<view class="wincom" style='display:{{display}}'>
+  <form bindsubmit="formSubmit" bindreset="formReset" class="comment">
+    <button class="sub" size="mini" bindtap="confirm" form-type="submit" style='display:{{display}}'>
+      <image class="subicon" src="/icon/submit.png" mode="scaleToFill"/>
+    </button>
+    <button class="cancle" size="mini" bindtap="cancel" style='display:{{display}}'>
+      <image class="canicon" src="/icon/cancel.png" mode="scaleToFill"/>
+    </button>
+    <textarea class="show" name="comment" style='display:{{display}}' placeholder="请输入注释..."></textarea>
+  </form>
+</view>
+<view class="func">
+  <image class="add" src="/icon/add.png" mode="aspectFit" bindtap="addcomment" />
+  <image class="view" src="/icon/view.png" mode="aspectFit" bindtap="gotocomment" />
+  <image class="question" src="/icon/question.png" mode="aspectFit" bindtap="gotoquestion" />
+</view>
+<view class="code">
+
+  <htmltowxml text="{{Vuecode}}" type = "md" bindWxmlTagATap="wxmlTagATap" highlightStyle = "tomorrow" >
+  </htmltowxml>
+
+</view>
+

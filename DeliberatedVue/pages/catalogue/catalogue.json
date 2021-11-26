@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "源码阅读"
+  "navigationBarTitleText": "源码阅读",
+  "usingComponents": {
+    "tree": "/components/mytree/mytree"
+  }
 }
