@@ -19,6 +19,9 @@
   <image class="question" src="/icon/question.png" mode="aspectFit" bindtap="gotoquestion" />
 </view>
 <view class="code">
-  <htmltowxml text="{{VueCode}}" type="md" bindWxmlTagATap="wxmlTagATap" highlightStyle="tomorrow">
+
+  <htmltowxml text="{{Vuecode}}" type = "md" bindWxmlTagATap="wxmlTagATap" highlightStyle = "tomorrow" >
   </htmltowxml>
+
 </view>
+

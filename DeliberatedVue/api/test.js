@@ -16,6 +16,7 @@ export function selectAnnotation(method, data, loading) {
   return request("selectAnnotation", method, data, loading)
 }
 
+
 //点赞注释
 export function annotationLikes(method, data, loading) {
   return request("annotationLikes", method, data, loading)
@@ -41,3 +42,4 @@ export function selectAnnotationReply(method, data, loading) {
 export function delAnnotationReply(method, data, loading) {
   return request("delAnnotationReply", method, data, loading)
 }
+

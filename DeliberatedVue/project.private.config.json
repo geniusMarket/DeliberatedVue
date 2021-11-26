@@ -23,6 +23,12 @@
                     "pathName": "pages/forum/details/details",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/forum/questPut/questPut",
+                    "pathName": "pages/forum/questPut/questPut",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }
