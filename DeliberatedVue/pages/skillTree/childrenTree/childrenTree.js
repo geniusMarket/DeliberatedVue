@@ -205,13 +205,24 @@ function initChart(canvas, width, height, dpr) {
 
     if (param.event.target.culling === true) {
       let args = param.data; //当前节点及其子节点的值
-      let level = param.data.level; //当前节点的层级 
+      let level = param.dataIndex; //当前节点的层级 
+      console.log(param)
+      console.log(level)
+      if (level == 3) {
+        wx.navigateTo({  
+          url: '/pages/catalogue/code/code'  
+        });
+      }
       
 
     } else if (param.event.target.culling === false) {
       let args = param.data; //当前节点及其子节点的值
       let level = param.data.level; //当前节点的层级 eg:"1-1-0",可以通过level判断当前的层级，从而进行不同的操作
-      
+      if (level == 3) {
+        wx.navigateTo({  
+          url: '/pages/catalogue/code/code'  
+        });
+      }
     }
   })
   return chart;
