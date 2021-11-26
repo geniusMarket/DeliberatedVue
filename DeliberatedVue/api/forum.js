@@ -50,3 +50,7 @@ export function addHistory(method, data, loading) {
 export function selectArticles(method, data, loading) {
     return request("selectArticles", method, data, loading)
 }
+
+export function articleReplyLikes(method, data, loading) {
+    return request("articleReplyLikes", method, data, loading)
+}

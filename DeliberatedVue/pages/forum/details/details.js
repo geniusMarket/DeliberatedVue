@@ -3,7 +3,8 @@ import {
   getArticle,
   addArticleReply,
   articleReplies,
-  articleLikes
+  articleLikes,
+  articleReplyLikes
 } from "../../../api/forum"
 var index;
 
@@ -123,4 +124,20 @@ Page({
     })
   },
 
+  // 点赞某条帖子的回复 点赞评论
+  articleReplyLikes(articleReplyId){
+    let data = {
+      "articleReplyId": articleReplyId
+    };
+    articleReplyLikes("POST", data, true).then(res => {
+      // console.log(res)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  // 点赞帖子的评论
+  commentLike(e){
+    this.articleReplyLikes(this.data.comments[e.currentTarget.dataset.index].data.articleReplyId)
+    this.articleReplies();
+  }
 })
