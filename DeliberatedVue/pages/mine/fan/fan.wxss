@@ -1,0 +1,142 @@
+/* pages/mine/fan/fan.wxss */
+/* 两个按钮 */
+.button {
+    height: 90rpx;
+}
+
+/* 关注的人按钮 */
+.getFollower {
+    position: absolute;
+    left: 120rpx;
+    top: 10rpx;
+    border-radius: 30rpx;
+    font-size: 10px;
+}
+
+/* 关注列表 */
+.followerList {
+    padding: 13rpx;
+    border: 1px solid #d4d4d4;
+}
+
+/* 共关注x人 */
+.followerInfo {
+    height: 70rpx;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+/* 共关注x人的图标 */
+.followerIcon {
+    height: 50rpx;
+    width: 50rpx;
+
+}
+
+/* 关注的人页面 */
+.follower {
+    position: relative;
+}
+
+/* 关注的人的头像 */
+.avatarUrl {
+    height: 70rpx;
+    width: 70rpx;
+    border-radius: 50%;
+}
+
+/* 已关注 */
+.followed {
+    width: 130rpx;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 30rpx;
+    font-size: 12px;
+    margin: 8rpx;
+    position: absolute;
+    right: 0;
+    display: inline;
+    padding: 7.5rpx;
+    text-align: center;
+}
+
+/* 已关注图标 */
+.followedIcon {
+    height: 35rpx;
+    width: 35rpx;
+}
+
+/* 相互关注 */
+.connected {
+    width: 135rpx;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 30rpx;
+    font-size: 12px;
+    margin: 8rpx;
+    position: absolute;
+    right: 0;
+    display: inline;
+    padding: 7.5rpx;
+    text-align: center;
+}
+
+/* 相互关注图标 */
+.connectedIcon {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+/* 我的粉丝按钮 */
+.getFan {
+    position: absolute;
+    left: 450rpx;
+    top: 10rpx;
+    border-radius: 30rpx;
+}
+
+.active {
+    background-color: #9edabf;
+}
+
+/* 全部粉丝（x） */
+.fanInfo {
+    height: 70rpx;
+    border: 1px solid #d4d4d4;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+/* 全部粉丝（x）的图标 */
+.fanIcon {
+    height: 50rpx;
+    width: 50rpx;
+
+}
+
+/* 加关注 */
+.care {
+    width: 130rpx;
+    border: 2rpx solid #8bd4b4;
+    border-radius: 30rpx;
+    font-size: 12px;
+    margin: 8rpx;
+    position: absolute;
+    right: 0;
+    display: inline;
+    padding: 6rpx;
+    text-align: center;
+}
+
+/* 加关注图标 */
+.careIcon {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+/* 关注列表 */
+.fanList {
+    padding: 13rpx;
+    border: 1px solid #d4d4d4;
+}

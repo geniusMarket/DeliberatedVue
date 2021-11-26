@@ -1,0 +1,67 @@
+/* pages/mine/point/point.wxss */
+
+/* 图标 */
+.Icon {
+    height: 70rpx;
+    width: 70rpx;
+    position: absolute;
+    left: 30rpx;
+    top: 25rpx;
+}
+
+/* 内循环渲染列表 */
+.detailList {
+    height: 110rpx;
+    width: 100%;
+    background-color: #e3f4ed;
+    position: relative;
+    border: 1.5rpx solid #d4d4d4;
+    border-radius: 8rpx;
+}
+
+/*（外） 日期 */
+.date {
+    font-size: 14px;
+    padding: 20rpx;
+}
+
+/* （内）引起积分变化的类型（文本内容） */
+.type {
+    font-size: 14px;
+    position: absolute;
+    left: 120rpx;
+    top: 25rpx;
+}
+
+/* （内）日期 */
+.time {
+    font-size: 11px;
+    position: absolute;
+    left: 120rpx;
+    top: 75rpx;
+}
+
+/* 积分变化（增加） */
+.pointChanged {
+    font-size: 14px;
+    position: absolute;
+    right: 20rpx;
+    top: 25rpx;
+    color: #f6ac3e;
+}
+
+/* 积分变化（减少） */
+.pointChanged1 {
+    font-size: 14px;
+    position: absolute;
+    right: 20rpx;
+    top: 25rpx;
+}
+
+/* 积分余额 */
+.pointRemain {
+    font-size: 12px;
+    position: absolute;
+    right: 20rpx;
+    top: 65rpx;
+}

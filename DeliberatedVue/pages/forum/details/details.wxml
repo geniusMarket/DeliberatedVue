@@ -55,7 +55,7 @@
 
 <view class="commentContainer">
     <text style="font-size: larger; font-weight: 600;">评论</text>
-    <view class="containerBox" wx:for="{{3}}">
+    <view class="containerBox" wx:for="{{3}}" wx:key="index">
         <view class="commenterBox">
             <view class="commenterInform">
                 <view class="headpicBox">

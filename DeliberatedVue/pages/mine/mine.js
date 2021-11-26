@@ -5,62 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {},
+    myInfo: {
+      intro: '个人简介',
+      follower: '',
+      fans: '',
+      points: ''
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      userInfo: JSON.parse(wx.getStorageSync('userInfo'))
+    })
+    // console.log(this.data.userInfo.avatarUrl)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  toEdit() {
+    wx.navigateTo({
+      url: '../mine/edit/edit',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  toFan() {
+    wx.navigateTo({
+      url: '../mine/fan/fan?isFan=true',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  toFollower() {
+    wx.navigateTo({
+      url: '../mine/fan/fan?isFan=false',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  toPoint() {
+    wx.navigateTo({
+      url: '../mine/point/point',
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  toFavorite() {
+    wx.navigateTo({
+      url: '../mine/favorite/favorite',
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  toQuestion() {
+    wx.navigateTo({
+      url: '../mine/question/question',
+    })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  toHistory() {
+    wx.navigateTo({
+      url: '../mine/history/history',
+    })
+  },
 })

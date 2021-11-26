@@ -1,4 +1,7 @@
 import * as echarts from '../../components/ec-canvas/echarts'
+import {
+  login
+} from "../../api/login"
 const app = getApp();
 
 Page({
@@ -6,11 +9,82 @@ Page({
   data: {
     ec: {
       onInit: initChart
-    }
+    },
+    // 以下登录相关
+    code: "",
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isHide: true,
+    userInfo: wx.getStorageSync('userInfo'),
+    showModal: false,
+    userName:app.globalData.userName,
+    userImage:app.globalData.userImage,
+    canIUseGetUserProfile:false,
+    hasUserInfo: false
   },
-
+  onLoad() {
+    if(wx.getStorageSync('userInfo').length == 0) {
+      this.setData({
+        hasUserInfo: false
+      })
+    } else {
+      this.setData({
+        hasUserInfo: true
+      })
+    }
+    if (wx.getUserInfo) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+    }
+    this.getCode()
+  },
   onReady() {},
-  onshow() {}
+  onshow() {},
+  login() {
+    let data = {
+        "code": this.data.code,
+        "userProfile": this.data.userInfo
+    }
+    login("POST", JSON.stringify(data), true).then(res => {
+      console.log(res)
+      wx.setStorageSync('openId', res.openId)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  getCode() {
+    const _this = this
+    wx.login({
+      success: res => {
+        console.log(res.code)
+        _this.setData({
+          code: res.code
+        })
+        console.log(_this.data.code)
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
+  },
+  getUserInfo() {
+    let _this = this
+    wx.getUserProfile({
+      desc: '用户登录', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res);
+        _this.setData({
+          userInfo: res.rawData,
+          hasUserInfo: true
+        })
+        wx.setStorageSync('userInfo', res.rawData)
+        _this.login()
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
+  },
 });
 
 function initChart(canvas, width, height, dpr) {
