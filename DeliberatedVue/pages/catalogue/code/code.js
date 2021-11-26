@@ -1,4 +1,7 @@
+import { readCode } from "../../../api/test";
+
 // pages/catalogue/code/code.js
+var app=getApp()
 Page({
 
   /**
@@ -46,6 +49,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.codeId  = app.globalData.codeId
+        this.setData({
+          codeId:this.codeId
+          })
+      console.log(this.codeId)
+      let data = {
+        "path": this.codeId
+      }
+      readCode("POST", data, true).then(res => {
+        console.log(res)
+        console.log(res.data.codeId)
+        this.setData({
+          VueCode:res.data.code
+        })
+      }).catch(err => {
+      console.log(err)
+    }) 
   },
 
   /**
