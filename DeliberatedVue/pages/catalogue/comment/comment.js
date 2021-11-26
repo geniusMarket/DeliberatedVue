@@ -1,14 +1,17 @@
 // pages/catalogue/comment/comment.js
+
 var app=getApp()
 import {addAnnotation} from "../../../api/test";
 import {selectAnnotation} from "../../../api/test";
 import {readCode} from "../../../api/test";
+
 var inputValue = ""
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+
     codeId:'',
     username:[
       {
@@ -72,10 +75,12 @@ Page({
       throw ("error");   
     }   
     }
+
   },
   /**
    * 收起/展开按钮点击事件
    */
+
   ellipsis: function (e) {  
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
@@ -91,6 +96,7 @@ Page({
           value[i].is_show = "收起"
         }
         else if (!value[i].ellipsis) {
+
           value[i].ellipsis = true,
           value[i].is_show = "展开"
         }
@@ -99,13 +105,16 @@ Page({
     //重新赋值
     this.setData({
       username: value,
+
     }) 
+
     // console.log(value[index].is_show)
 
   },
   /**
    * 点赞函数
    */
+
   is_like: function (e){
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
@@ -115,34 +124,44 @@ Page({
     for (let i in value){
       //遍历列表数据
       if(i == index){
+
         if (value[i].is_like) {
           value[i].is_like = false,
           value[i].like_num = parseInt(value[i].like_num) - 1,
           value[i].like_src = "/icon/zan.png"
+
         }
         else if (!value[i].is_like) {
           value[i].is_like = true,
           value[i].like_num = parseInt(value[i].like_num) + 1
+
           value[i].like_src = "/icon/selectedzan.png"
         }
       }
     }
+
     console.log(value[index].like_src)
+
     //重新赋值
     this.setData({
       username: value,
     })
+
     this.onLoad()
+
   },
   /**
    * 回复函数
    */
+
   is_reply: function (e){
+
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
     // console.log(index)
     //data中获取列表
     var value = this.data.username;
+
     for (let i in value){
       //遍历列表数据
       if(i == index){
@@ -164,10 +183,12 @@ Page({
   },
 
   readCode:function(){  //获取源码
+
     let data = {
       "path": this.data.codeId
     }
     readCode("POST", data, true).then(res => {
+
       console.log(res)
       console.log(res.data.codeId)
       this.setData({
@@ -206,12 +227,14 @@ Page({
     }).catch(err => {
     console.log(err)
   }) 
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     //点赞数从大到小排序注释
       this.setData({
         username: this.data.username.sort(this.compare("like_num")).reverse(),
@@ -222,6 +245,7 @@ Page({
         })
       console.log(this.data.codeId)
       this.readCode()  //获取源码
+
   }
 
 })

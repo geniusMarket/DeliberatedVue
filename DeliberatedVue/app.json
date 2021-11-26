@@ -1,19 +1,23 @@
 {
     "pages": [
+
         "pages/catalogue/catalogue",
         "pages/startUp/startUp",
         "pages/skillTree/skillTree",
         "pages/skillTree/childrenTree/childrenTree",
+
         "pages/catalogue/comment/comment",
         "pages/catalogue/question/question",
         "pages/catalogue/code/code",
         "pages/forum/forum",
+
         "pages/mine/mine",
         "pages/forum/questPut/questPut"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
+
         "navigationBarTextStyle": "black"
     },
     "tabBar": {
@@ -47,3 +51,4 @@
     "style": "v2",
     "sitemapLocation": "sitemap.json"
 }
+

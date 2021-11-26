@@ -1,5 +1,6 @@
 <!--pages/catalogue/comment/comment.wxml-->
 <scroll-view class="code" scroll-y="true" scroll-x="true">
+
   <text class="text" user-select="true">{{VueCode}}</text>
 </scroll-view>
 <view class="comment">
@@ -48,11 +49,6 @@
           <text class="confirm_text">发送</text>
         </button>
       </view>
+
     </view>
-  </view>
 </view>
-
-
-
-
-

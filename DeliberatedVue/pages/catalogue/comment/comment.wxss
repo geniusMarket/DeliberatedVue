@@ -11,6 +11,7 @@
 }
 .comment{
   display: flex; /*设置为可并排*/
+  flex-direction: row;
   align-items: flex-start;
 }
 .userImg{
@@ -28,12 +29,27 @@
   height: 50rpx;
   margin-left: 25rpx;
 }
+
+.confirm_button{
+  margin-right: 10rpx;
+}
+
+.all{
+  position: absolute;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+
+}
 .confirm{
+
   background-color: #41b883;
   border-radius: 20rpx;
   height: 70rpx;
   width: 100rpx;
   margin-top: 2rpx;
+
 }
 .confirm_text{
   color: white;
@@ -84,7 +100,9 @@
 }
 .reply{
   display: flex;
+
   margin-left: 370rpx;
+
   margin-top: 8rpx;
 }
 .replyimg{
@@ -111,6 +129,7 @@
 }
 .replybox{
   display: flex;
+
   margin-top: 15rpx;
   margin-left: 1rpx;
   margin-bottom: 10rpx;
@@ -120,15 +139,19 @@
   border-radius: 25rpx; /*圆角*/
   padding: 10rpx;
   width: 450rpx;
+
   height: 30rpx;
+
 }
 .replyconfirm{
   background-color: #41b883;
   border-radius: 25rpx;
   height: 60rpx;
+
   margin-top: 4rpx;
   margin-left: 15rpx;
 }
+
 .user{
   display: flex;
 }

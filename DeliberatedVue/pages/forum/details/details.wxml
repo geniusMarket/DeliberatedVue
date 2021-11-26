@@ -35,12 +35,14 @@
 </view>
 
 
+
 <view style="font-size: larger; font-weight: 600;margin-left:35rpx; margin-top: 30rpx;">评论</view>
 <view class="containerBox" wx:for="{{comments}}" wx:key="index">
     <view class="commenterBox">
         <view class="commenterInform">
             <image src="../../../images/headpic.png" mode="heightFix"></image>
             <view style="margin-left: 20rpx;">{{item.data.replier}}</view>
+
         </view>
         <view class="likeNum" data-index="{{index}}" bindtap="commentLike">
             <image src="../../../icon/like.png" mode="heightFix"></image>

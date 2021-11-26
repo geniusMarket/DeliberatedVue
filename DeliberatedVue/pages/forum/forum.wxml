@@ -3,8 +3,9 @@
     <view class="searchIconBox">
         <image src="/icon/searchicon.png" mode="heightFix"></image>
     </view>
-    <view class="searchButtonBox">
-        <text style="color: #929292;">请输入查找内容</text>
+    <view class="searchButtonBox" bindtap="toSearch">
+        <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" />
+        <!-- <text style="color: #929292;">请输入查找内容</text> -->
     </view>
 </view>
 
@@ -31,7 +32,9 @@
 
 <view class="fillBox"></view>
 <view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
+
     <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}">
+
         <view class="postTitle">
             <view>{{item.data.title}}</view>
             <view class="pointBox">

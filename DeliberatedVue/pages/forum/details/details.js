@@ -1,3 +1,4 @@
+
 import {
   getArticle,
   addArticleReply,
@@ -5,12 +6,14 @@ import {
   articleLikes
 } from "../../../api/forum"
 var index;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
     likePost: false,
     comments: [],
     sendCom: false, //存储发送评论按钮的状态
@@ -18,6 +21,7 @@ Page({
     article: "",
     currentComment: "",
     userInfo: [], //存储userinfo的内容
+
   },
 
 
@@ -26,6 +30,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+
       articleId: options.articleId
     })
     this.getArticle();
@@ -47,6 +52,7 @@ Page({
     }).catch(err => {
       console.log(err)
     })
+
   },
 
   // 获取评论内容，显示评论发送按钮
