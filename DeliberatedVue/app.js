@@ -25,6 +25,8 @@ App({
   globalData: {
     userInfo: null,
     isIphoneX: null,
-    codeId:0
+    codeId:0,
+    VueCode:'',
+    reply:''  // 回复
   }
 })
