@@ -30,6 +30,7 @@ App({
     userInfo: null,
     isIphoneX: null,
     codeId:0,
-    VueCode:''
+    VueCode:'',
+    reply:''  // 回复
   }
 })
