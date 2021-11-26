@@ -1,0 +1,51 @@
+/* pages/mine/history/history.wxss */
+
+/* 图标 */
+.Icon {
+    height: 50rpx;
+    width: 50rpx;
+    padding-top: 10rpx;
+}
+
+/* 头像 */
+.avatar {
+    height: 60rpx;
+    width: 60rpx;
+    border-radius: 50%;
+}
+
+/* 浏览日期 */
+.date {
+    margin: 10rpx;
+    border-bottom: 2px solid #ccecde;
+    font-size: 14px;
+}
+
+/* 内循环渲染列表 */
+.detailList {
+    height: 76rpx;
+    width: 100%;
+    background-color: #ccecde;
+    position: relative;
+    border: 1rpx solid #d4d4d4;
+    margin: 5rpx;
+}
+
+/* 外循环列表 */
+.historyList{
+    margin-top: 10rpx;
+    margin-bottom: 40rpx;
+}
+
+/* 用户信息栏 */
+.info{
+    margin-top: 20rpx;
+    font-size: 13px;
+}
+
+/* 浏览条目的标题 */
+.title{
+    font-size: 13px;
+    position: absolute;
+    top: 20rpx;
+}

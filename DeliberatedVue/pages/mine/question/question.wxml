@@ -1,0 +1,12 @@
+<!--pages/mine/question/question.wxml-->
+<view class="questionList" wx:for="{{question}}" wx:key="index">
+
+    <view class="top">
+        <image class="avatar" src="{{item.avatarUrl}}"></image>
+        <view class="nickName">{{item.nickName}}</view>
+        <view class="time">{{item.time}}</view>
+    </view>
+    <scroll-view class="question" scroll-x="true" scroll-y="true" style="height: 120px;">
+        <text decode="{{true}}">&nbsp;&nbsp;{{item.question}}</text>
+    </scroll-view>
+</view>

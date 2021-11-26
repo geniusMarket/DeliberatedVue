@@ -1,5 +1,5 @@
 const baseUrl = "https://geniusmarket.top/"
-// const baseUrl="https://geniusmaket.top/getCode/"
+
 // const baseUrl = "http://localhost:8081/"
 // const baseUrl = "http://121.41.25.13:9500/"
 
