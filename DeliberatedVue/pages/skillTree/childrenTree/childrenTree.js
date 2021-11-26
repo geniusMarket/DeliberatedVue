@@ -81,42 +81,83 @@ function initChart(canvas, width, height, dpr) {
   });
   canvas.setChart(chart);
   var data1 = {
-    "name": "混合",
+    "name": "组件",
     "children": [{
-      "name": "test1",
+      "name": "组件基础",
       "children": [{
-        "name": "a1",
-        "children": [{
-          "name": "b1"
-        }, {
-          "name": "b2"
-        }, {
-          "name": "b3"
-        }, {
-          "name": "b4"
-        }]
+        "name": "events.js",
       }, {
-        "name": "a2"
-      }, {
-        "name": "a3"
-      }, {
-        "name": "a4"
+        "name": "cextract-props.js"
       }]
     }, {
-      "name": "test2",
+      "name": "组件",
       "children": [{
-        "name": "b1"
+        "name": "assets.js"
       }, {
-        "name": "b2"
+        "name": "create-component.js"
       }, {
-        "name": "b3"
+        "name": "create-element.js"
       }, {
-        "name": "b4"
+        "name": "options.js"
       }]
-    }, {
-      "name": "test3",
+    },{
+      "name": "props",
       "children": [{
-        "name": "c1"
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "插槽",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "作用域插槽",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "异步组件",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "自定义事件",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
       }]
     }]
   };

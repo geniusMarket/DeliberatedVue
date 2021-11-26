@@ -4,9 +4,9 @@
   <text class="text" user-select="true">{{VueCode}}</text>
 </scroll-view>
 <view class="comment">
-  <image class="userImg" src="/images/v2_qbsucr.png" mode="scaleToFill"/>
+  <image class="userImg" src="/images/v2_qbsucr.png" mode="scaleToFill" />
   <view class="commentin">
-  <input type="text" class="comment" bindinput="bindKeyInput" placeholder="请输入注释"></input>
+    <input type="text" class="comment" bindinput="bindKeyInput" placeholder="请输入注释"></input>
   </view>
   <button class="confirm" size="mini">
     <text class="confirm_text">发表注释</text>
@@ -14,7 +14,7 @@
 </view>
 <view class="view_comment">
   <view class="usercomment" wx:for="{{username}}" wx:key="name" data-index="{{index}}">
-    <image class="userImg" src="/images/v2_r1z3ud.jpg" mode="scaleToFill"/>
+    <image class="userImg" src="/images/v2_r1z3ud.jpg" mode="scaleToFill" />
     <view class="rightbox">
       <text class="username">{{item.name}}</text>
       <text class="comment_text {{item.ellipsis?'ellipsis':'unellipsis'}}">{{item.comment_text}}</text>
@@ -24,16 +24,17 @@
       <view class="likeareply">
         <text class="pub_time">{{item.pub_time}}</text>
         <view class="reply" data-index="{{index}}">
-          <image class="replyimg" src="{{item.reply_src}}" mode="scaleToFill" data-index="{{index}}" bindtap="is_reply" />
+          <image class="replyimg" src="{{item.reply_src}}" mode="scaleToFill" data-index="{{index}}"
+            bindtap="is_reply" />
         </view>
         <view class="like" data-index="{{index}}">
-          <image class="likeimg" src="{{item.like_src}}" mode="scaleToFill" bindtap="is_like" data-index="{{index}}"/>
+          <image class="likeimg" src="{{item.like_src}}" mode="scaleToFill" bindtap="is_like" data-index="{{index}}" />
           <text class="like_num" bindtap="is_like" data-index="{{index}}">{{item.like_num}}</text>
         </view>
-      </view>   
+      </view>
       <view class="userreply">
         <view class="user">
-          <image class="userreplyImg" src="/images/v2_r1z3xx.jpg" mode="scaleToFill"/>
+          <image class="userreplyImg" src="/images/v2_r1z3xx.jpg" mode="scaleToFill" />
           <text class="userreplyname">{{item.username_reply}}</text>
         </view>
         <view class="replydetail">
@@ -49,6 +50,6 @@
           <text class="confirm_text">发送</text>
         </button>
       </view>
-
     </view>
+  </view>
 </view>
