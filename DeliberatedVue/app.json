@@ -1,18 +1,24 @@
 {
     "pages": [
-
-        "pages/catalogue/catalogue",
+        
         "pages/startUp/startUp",
         "pages/skillTree/skillTree",
         "pages/skillTree/childrenTree/childrenTree",
-
         "pages/catalogue/comment/comment",
         "pages/catalogue/question/question",
         "pages/catalogue/code/code",
+        "pages/catalogue/catalogue",
         "pages/forum/forum",
-
+        "pages/forum/questPut/questPut",
+        "pages/forum/search/search",
         "pages/mine/mine",
-        "pages/forum/questPut/questPut"
+        "pages/mine/question/question",
+        "pages/mine/fan/fan",
+        "pages/mine/point/point",
+        "pages/mine/edit/edit",
+        "pages/mine/favorite/favorite",
+        "pages/mine/history/history"
+        
     ],
     "window": {
         "backgroundTextStyle": "light",

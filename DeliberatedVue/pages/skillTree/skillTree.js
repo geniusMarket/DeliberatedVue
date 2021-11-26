@@ -97,15 +97,15 @@ function initChart(canvas, width, height, dpr) {
   var data1 = {
     "name": "Vue",
     "children": [{
-      "name": "混合"
-    }, {
       "name": "组件"
+    }, {
+      "name": "class与style绑定"
     }, {
       "name": "方法与事件修饰器"
     }, {
       "name": "列表渲染"
     }, {
-      "name": "class与style绑定"
+      "name": "混合"
     }, {
       "name": "条件渲染"
     }, {
