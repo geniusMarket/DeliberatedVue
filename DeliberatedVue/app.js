@@ -26,7 +26,8 @@ App({
     userInfo: null,
     isIphoneX: null,
     codeId:0,
-
+    userName:'',   //用户名
+    userImage:'',  //头像
     VueCode:'',
     reply:''  // 回复
 
