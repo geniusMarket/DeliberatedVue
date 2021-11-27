@@ -3,8 +3,9 @@
     <view class="searchIconBox">
         <image src="/icon/searchicon.png" mode="heightFix"></image>
     </view>
-    <view class="searchButtonBox">
-        <text style="color: #929292;">请输入查找内容</text>
+    <view class="searchButtonBox" bindtap="toSearch">
+        <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" />
+        <!-- <text style="color: #929292;">请输入查找内容</text> -->
     </view>
 </view>
 
@@ -30,10 +31,12 @@
 </view>
 
 <view class="fillBox"></view>
-<view class="postBoxOuter" wx:for="{{postList}}">
-    <navigator class="postBox" url="./details/details">
+<view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
+
+    <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}">
+
         <view class="postTitle">
-            <view>  Vue.js 是什么？ </view>
+            <view>{{item.data.title}}</view>
             <view class="pointBox">
                 <image src="../../icon/points.png" mode="heightFix"></image>
                 <text style="color: #FFD700;">20</text>
@@ -69,9 +72,9 @@
 </view>
 <view class="fillBox"></view>
 
-<view class="newPostBox">
+<navigator url="../forum/posting/posting" class="newPostBox">
     <view class="newPostIconBox">
         <image src="../../icon/newPost.png" mode="heightFix"></image>
     </view>
     <text>发帖</text>
-</view>
+</navigator>

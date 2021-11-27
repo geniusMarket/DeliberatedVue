@@ -1,0 +1,42 @@
+<!--pages/mine/fan/fan.wxml-->
+<view class="button">
+    <button bindtap="getFollower" class="getFollower {{isFan ? '' : 'active'}}" size="mini">关注的人</button>
+    <button bindtap="getFan" class="getFan  {{isFan ? 'active' : ''}}" size="mini">我的粉丝</button>
+</view>
+<view class="follower" wx:if="{{!isFan}}">
+    <view class="followerInfo">
+        <image class="followerIcon" src="../../../icon/myFollower.png"></image>
+        <text class="followerNum" decode="{{true}}">&nbsp;&nbsp;共关注{{follower.length}}人</text>
+    </view>
+    <view wx:for="{{follower}}" wx:key="index" class="followerList">
+        <image src="{{item.avatarUrl}}" class="avatarUrl"></image>
+        <text class="nickName">{{item.nickName}}</text>
+        <view wx:if="{{item.status == 1}}" class="followed" bindtap="dontCare1">
+            <image class="followedIcon" src="../../../icon/myFollower.png"></image>
+            <text decode="{{true}}" class="followedText">&nbsp;&nbsp;已关注</text>
+        </view>
+        <view wx:if="{{item.status == 2}}" class="connected" bindtap="dontCare">
+            <image class="connectedIcon" src="../../../icon/connected.png"></image>
+            <text decode="{{true}}">相互关注</text>
+        </view>
+    </view>
+</view>
+
+<view class="fan" wx:if="{{isFan}}">
+    <view class="fanInfo">
+        <image class="fanIcon" src="../../../icon/fan.png"></image>
+        <text class="fanNum" decode="{{true}}">&nbsp;&nbsp;全部粉丝（{{fan.length}}）</text>
+    </view>
+    <view wx:for="{{fan}}" wx:key="index" class="fanList">
+        <image src="{{item.avatarUrl}}" class="avatarUrl"></image>
+        <text class="nickName">{{item.nickName}}</text>
+        <view wx:if="{{item.status == 3}}" class="care" bindtap="care">
+            <image class="careIcon" src="../../../icon/care.png"></image>
+            <text decode="{{true}}" class="followedText">&nbsp;&nbsp;关注</text>
+        </view>
+        <view wx:if="{{item.status == 2}}" class="connected" bindtap="dontCare2">
+            <image class="connectedIcon" src="../../../icon/connected.png"></image>
+            <text decode="{{true}}">相互关注</text>
+        </view>
+    </view>
+</view>

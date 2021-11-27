@@ -319,13 +319,13 @@ Page({
           annotationId: annotation.data.annotationId,
           fold: fold,
           is_show: "展开",
-          is_like: wx.getStorageSync('annotation')[i].is_like,
-          like_num: wx.getStorageSync('annotation')[i].like_num,
+          is_like: false,
+          like_num: annotation.data.likes,
           pub_time: "3分钟前",
           is_reply: false,
           reply: wx.getStorageSync('reply')[i],
           ellipsis: true, // 文字是否收起，默认收起
-          like_src: wx.getStorageSync('annotation')[i].like_src,
+          like_src: "/icon/zan.png",
           reply_src: "/icon/reply.png",
         }
         annotations_new.push(obj);

@@ -13,27 +13,19 @@
     align-items: center;
     justify-content: center;
 }
-.userBox .userInform .headpicBox{
-    height: 60rpx; 
-    width: 80rpx;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.userBox .userInform .headpicBox image{
-    height: 100%;
+.userBox .userInform image{
+    height: 60rpx;
 }
 
 .locateBox{
-    height: 135rpx;
+    height: 116rpx;
     width: 100%;
     border-bottom: #bbbbbb solid 5rpx;
     display: flex;
     align-items: center;
 }
 .locateBox .outLocate{
-    height: 80rpx;
+    height: 65rpx;
     width: 390rpx;
     border-radius: 40rpx;
     background-color: #c3e8d8;
@@ -49,13 +41,11 @@
 }
 .locateBox .outLocate image{
     margin-left: 10rpx;
-    height: 65rpx;
+    height: 58rpx;
 }
 
 .textBodyBox{
-    width: 86%;
-    margin-left: 7%;
-    margin-bottom: 20rpx;
+    margin: 20rpx 7% ;
 }
 
 .fillBox{
@@ -84,28 +74,15 @@
     display: flex;
     flex-direction: row;
 }
-.taberBoxBlock .taberBox .outTaber .taberIconBox{
-    height: 100%;
-    width: 60rpx;
-    display: flex;
-    justify-content: center;
-}
-.taberBoxBlock .taberBox .outTaber .taberIconBox image{
-    height: 100%;
-}
-.taberBoxBlock .taberBox .outTaber .taberTextBox{
-    font-size: medium;
+.taberBoxBlock .taberBox .outTaber image{
+    height: 46rpx;
 }
 
-.commentContainer{
-    width: 94%;
-    margin-left: 3%;
-    margin-top: 25rpx;
+
+.containerBox{
+    margin: 28rpx 35rpx;
 }
-.commentContainer .containerBox{
-    margin-bottom: 20rpx;
-}
-.commentContainer .containerBox .commenterBox{
+.containerBox .commenterBox{
     height: 80rpx; 
     width: 100%;
     display: flex;
@@ -113,37 +90,64 @@
     align-items: center;
     justify-content: space-between;
 }
-.commentContainer .containerBox .commenterBox .commenterInform{
+.containerBox .commenterBox .commenterInform image{
+    height: 60rpx
+}
+.containerBox .commenterBox .commenterInform{
     height: 75rpx;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.commentContainer .containerBox .commenterBox .commenterInform .headpicBox{
-    height: 60rpx; 
-    width: 80rpx;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.commentContainer .containerBox .commenterBox .commenterInform .headpicBox image{
-    height: 100%;
-}
-.commentContainer .containerBox .commenterBox .likeNum{
-    width: 120rpx;
+.containerBox .commenterBox .likeNum{
+    width: 100rpx;
     height: 70%;
     margin-right: 20rpx;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.commentContainer .containerBox .commenterBox .likeNum image{
+.containerBox .commenterBox .likeNum image{
     height: 100%;
 }
-.commentContainer .containerBox .commentContent{
-    margin-left: 80rpx;
-    font-size: small;
+.containerBox .commentContent{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    font-size: 30rpx;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: justify;
+}
+.textControlBox{
+    display: -webkit-box;
+    display: -webkit-flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10rpx 0;
+}
+.textControl{
+    font-size: 26rpx;
+    font-weight: 550;
+    color: #80d0ac;
+    line-height: 32rpx;
+    margin-right: 10rpx;
+}
+.three{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.end{
+    margin-top: 60rpx;
+    margin-bottom: 180rpx;
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
 }
 
 .comInputBox{

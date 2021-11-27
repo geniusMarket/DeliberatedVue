@@ -1,11 +1,7 @@
 <view class="userBox">
     <view class="userInform">
-        <view class="headpicBox">
-            <image src="/images/headpic.png" mode="heightFix"></image>
-        </view>
-        <view class="usernameBox">
-            <text>userName</text>
-        </view>
+        <image src="/images/headpic.png" mode="heightFix"></image>
+        <text style="margin-left: 5rpx;">{{userInfo.nickName}}</text>
     </view>
 </view>
 
@@ -17,70 +13,57 @@
 </view>
 
 <view class="textBodyBox">
-    <text>
-        Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue
-        被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。\n \n另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。
-    </text>
+    <text user-select="true">{{article}}</text>
 </view>
 
 <view class="fillBox"></view>
 <view class="taberBoxBlock">
     <view class="taberBox">
-        <view class="outTaber">
-            <view class="taberIconBox">
-                <image src="../../../icon/like.png" mode="heightFix"></image>
-            </view>
-            <view class="taberTextBox">
-                <text>点赞</text>
-            </view>
+        <view class="outTaber" bindtap="postLike">
+            <image src="{{likePost?'../../../icon/selectedLike.png':'../../../icon/like.png'}}" mode="heightFix"></image>
+            <view style="font-size: medium;">点赞</view>
         </view>
         <view class="outTaber">
-            <view class="taberIconBox">
-                <image src="../../../icon/reward.png" mode="heightFix"></image>
-            </view>
-            <view class="taberTextBox">
-                <text>打赏</text>
-            </view>
+            <image src="../../../icon/reward.png" mode="heightFix"></image>
+            <view style="font-size: medium;">打赏</view>
         </view>
         <view class="outTaber">
-            <view class="taberIconBox">
-                <image src="../../../icon/comment.png" mode="heightFix"></image>
-            </view>
-            <view class="taberTextBox">
-                <text>评论</text>
-            </view>
+            <image src="../../../icon/comment.png" mode="heightFix"></image>
+            <view style="font-size: medium;">评论</view>
         </view>
     </view>
 </view>
 
-<view class="commentContainer">
-    <text style="font-size: larger; font-weight: 600;">评论</text>
-    <view class="containerBox" wx:for="{{3}}">
-        <view class="commenterBox">
-            <view class="commenterInform">
-                <view class="headpicBox">
-                    <image src="/images/headpic.png" mode="heightFix"></image>
-                </view>
-                <view class="commenternameBox">
-                    <text>commenterName</text>
-                </view>
-            </view>
-            <view class="likeNum">
-                <image src="../../../icon/selectedLike.png" mode="heightFix"></image>
-                <text style="color: #606060;"> 574 </text>
-            </view>
+
+
+<view style="font-size: larger; font-weight: 600;margin-left:35rpx; margin-top: 30rpx;">评论</view>
+<view class="containerBox" wx:for="{{comments}}" wx:key="index">
+    <view class="commenterBox">
+        <view class="commenterInform">
+            <image src="../../../images/headpic.png" mode="heightFix"></image>
+            <view style="margin-left: 20rpx;">{{item.data.replier}}</view>
+
         </view>
-        <view class="commentContent">
-            <text>这篇写的对初学者很有帮助</text>
+        <view class="likeNum" data-index="{{index}}" bindtap="commentLike">
+            <image src="../../../icon/like.png" mode="heightFix"></image>
+            <text style="color: #606060;">{{item.data.likes}}</text>
         </view>
     </view>
+    <view class="commentContent">{{item.data.detail}}</view>
 </view>
-<view style="height: 100rpx;"></view>
 
+<view class="end">
+    <text space="nbsp">——  THE  END  ——</text>
+</view>
 
 <view class="comInputBox">
     <view class="inputBox">
-        <input placeholder="输入评论内容" style="margin-left: 20rpx;"></input>
+        <textarea placeholder="输入评论内容" style="margin-left: 20rpx; height: 60rpx;margin-top: 10rpx;"
+            bindinput="commentInput"></textarea>
+        <block wx:if="{{sendCom}}">
+            <image src="../../../icon/sendComment.png" mode="heightFix"
+                style="height: 50rpx; margin-top: 10rpx; margin-right: 25rpx;" bindtap="sendComment"></image>
+        </block>
     </view>
     <view class="comIconBox">
         <image src="../../../icon/smile.png" mode="heightFix"></image>

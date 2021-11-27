@@ -81,42 +81,83 @@ function initChart(canvas, width, height, dpr) {
   });
   canvas.setChart(chart);
   var data1 = {
-    "name": "混合",
+    "name": "组件",
     "children": [{
-      "name": "test1",
+      "name": "组件基础",
       "children": [{
-        "name": "a1",
-        "children": [{
-          "name": "b1"
-        }, {
-          "name": "b2"
-        }, {
-          "name": "b3"
-        }, {
-          "name": "b4"
-        }]
+        "name": "events.js",
       }, {
-        "name": "a2"
-      }, {
-        "name": "a3"
-      }, {
-        "name": "a4"
+        "name": "cextract-props.js"
       }]
     }, {
-      "name": "test2",
+      "name": "组件",
       "children": [{
-        "name": "b1"
+        "name": "assets.js"
       }, {
-        "name": "b2"
+        "name": "create-component.js"
       }, {
-        "name": "b3"
+        "name": "create-element.js"
       }, {
-        "name": "b4"
+        "name": "options.js"
       }]
-    }, {
-      "name": "test3",
+    },{
+      "name": "props",
       "children": [{
-        "name": "c1"
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "插槽",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "作用域插槽",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "异步组件",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
+      }]
+    },
+    {
+      "name": "自定义事件",
+      "children": [{
+        "name": "assets.js"
+      }, {
+        "name": "create-component.js"
+      }, {
+        "name": "create-element.js"
+      }, {
+        "name": "options.js"
       }]
     }]
   };
@@ -164,13 +205,24 @@ function initChart(canvas, width, height, dpr) {
 
     if (param.event.target.culling === true) {
       let args = param.data; //当前节点及其子节点的值
-      let level = param.data.level; //当前节点的层级 
+      let level = param.dataIndex; //当前节点的层级 
+      console.log(param)
+      console.log(level)
+      if (level == 3) {
+        wx.navigateTo({  
+          url: '/pages/catalogue/code/code'  
+        });
+      }
       
 
     } else if (param.event.target.culling === false) {
       let args = param.data; //当前节点及其子节点的值
       let level = param.data.level; //当前节点的层级 eg:"1-1-0",可以通过level判断当前的层级，从而进行不同的操作
-      
+      if (level == 3) {
+        wx.navigateTo({  
+          url: '/pages/catalogue/code/code'  
+        });
+      }
     }
   })
   return chart;

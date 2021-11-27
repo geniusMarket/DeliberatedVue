@@ -1,0 +1,165 @@
+/* 头像公用属性 */
+.headPic{
+    /* height: 64rpx; */
+    width: 64rpx;
+    margin: 0 12rpx;
+    border-radius: 50%;
+}
+
+.code{
+    border: 5rpx solid #41b883;
+    border-radius: 20rpx; /*圆角*/
+    padding: 10rpx;
+    width: 600rpx;
+    max-height: 375rpx;
+    margin-top: 20rpx;
+    margin-left: 50rpx;
+    margin-bottom: 40rpx;
+  }
+
+.codeBox{
+    margin: 25rpx 36rpx;
+    border: 2rpx solid grey;
+    border-radius: 30rpx;
+}
+
+.questPutBox{
+    display: flex;
+    flex-direction: row;
+}
+.questBox{
+    border: 2rpx solid grey;
+    border-radius: 25rpx;
+    padding: 15rpx;
+    height: 260rpx;
+}
+.questArea{
+    height: 250rpx;
+}
+
+/* 奖金悬赏 发表按钮 */
+.questConBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80rpx;
+    margin-top: 20rpx;
+}
+.reward-putBox{
+    display: flex;
+    flex-direction: row;
+    width: 350rpx;
+    justify-content: space-around;
+    align-items: center;
+}
+.rewardBox{
+    border: 2rpx solid grey;
+    height: 60rpx;
+    width: 120rpx;
+    border-radius: 5rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.quePutBtn{
+    background-color: #41b883;
+    height: 72rpx;
+    width: 125rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20rpx;
+    color: white;
+}
+
+/* 提问内容部分 */
+.questionsBox{
+    margin-top: 28rpx;
+    margin-right: 28rpx;
+}
+.commentContent{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    width: 100%;
+    font-size: 30rpx;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: justify;
+}
+
+
+/* 提问区回复模块 */
+.replyBox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 90rpx;
+    font-size: small;
+}
+
+.answersContainer{
+    width: 80%;
+    margin-left: 20%;
+    margin-top: 8rpx;
+}
+
+.end{
+    margin-top: 60rpx;
+    margin-bottom: 80rpx;
+    display: flex;
+    justify-content: center;
+    font-size: 28rpx;
+}
+
+/* 回复提问弹窗 */
+.answerBox{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+.answerBox-bg{
+    opacity: 0.3;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+}
+.answerBox-toast{
+    position: absolute;
+    opacity: 1;
+    width: 80%;
+    margin-top: 40%;
+    margin-left: 10%;
+}
+.toastQuest{
+    height: 150rpx;
+    width: 100%;
+    background-color: #80d0ac;
+    font-size: large;
+}
+.toastAnswer{
+    height: 250rpx;
+    width: 100%;
+    background-color: white;
+}
+.toastControl{
+    height: 100rpx;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.toastCancel,.toastPut{
+    width: 50%;
+    background-color: whitesmoke;
+    font-size: larger;
+    font-weight: 600;
+    text-align: center;
+    line-height: 100rpx;
+}
+.toastCancel{
+    border-right: 2rpx solid white;
+}

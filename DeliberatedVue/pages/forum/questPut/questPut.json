@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "htmltowxml": "/components/html2wxml-component/html2wxml"
+  },
+  "navigationBarTitleText": "发起提问",
+  "navigationBarBackgroundColor": "#80d0ac"
+}

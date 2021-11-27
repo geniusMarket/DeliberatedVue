@@ -1,0 +1,61 @@
+<scroll-view class="code" scroll-y="true" scroll-x="true">
+    <!-- <text class="text" user-select="true">{{VueCode}}</text> -->
+    <htmltowxml text="{{VueCode}}" type="md" bindWxmlTagATap="wxmlTagATap"  highlightStyle="tomorrow">
+    </htmltowxml>
+</scroll-view>
+
+<view class="questPutBox">
+    <image class="headPic" mode="widthFix" src="../../../images/v2_qbsucr.png"></image>
+    <view class="questBox">
+        <textarea class="questArea" placeholder="请输入您的问题" maxlength="-1" bindinput="questGet"></textarea>
+    </view>
+</view>
+
+<view class="questConBox">
+    <view></view>
+    <view class="reward-putBox">
+        <image src="../../../icon/points.png" mode="heightFix" style="height: 54rpx;"></image>
+        <picker mode="selector" range="{{rewardNum}}" value="{{index}}" bindchange="rewardPickListener">
+            <view class="rewardBox">{{rewardNum[index]}}
+                <image src="../../../icon/rewardChoose.png" mode="heightFix" style="height: 32rpx;"></image>
+            </view>
+        </picker>
+        <view class="quePutBtn" bindtap="questPut">发表</view>
+    </view>
+</view>
+
+<text style="margin-left:20rpx; font-size: larger;">{{questNum}}条提问</text>
+<block>
+    <view class="questionsBox" wx:for="{{questions}}" wx:key="index">
+        <view style="display: flex;flex-direction: row;">
+            <image class="headPic" src="../../../images/v2_r1z3ud.jpg" mode="widthFix"></image>
+            <view class="commentContent">{{item.data.asker}} :{{item.data.detail}}</view>
+        </view>
+        <view class="replyBox">
+            <text>{{}}分钟前</text>
+            <image src="../../../icon/points.png" mode="heightFix" style="height: 54rpx;"></image>
+            <text style="margin-right: 10rpx;">{{item.data.reward}}</text>
+            <view style="color: #80d0ac;" bindtap="showAnswerQuest" data-index="{{index}}">回复</view>
+        </view>
+        <view class="answersContainer" wx:for="{{answers[index]}}">
+            <text style="color: grey;">{{item.data.answerer}}：</text>
+            <text>{{item.data.detail}}</text>
+        </view>
+    </view>
+</block>
+
+<view wx:if="{{answerState}}" class="answerBox">
+    <view class="answerBox-bg"></view>
+    <view class="answerBox-toast">
+        <view class="toastQuest">{{answerQuest}}</view>
+        <textarea class="toastAnswer" placeholder="请输入您的回答" maxlength="-1" bindinput="answerGet"></textarea>
+        <view class="toastControl">
+            <view class="toastCancel" bindtap="closeAnswerQuest"> 取消 </view>
+            <view class="toastPut" bindtap="answerQuestion"> 回复 </view>
+        </view>
+    </view>
+</view>
+
+<view class="end">
+    <text space="nbsp">——  THE  END  ——</text>
+</view>
