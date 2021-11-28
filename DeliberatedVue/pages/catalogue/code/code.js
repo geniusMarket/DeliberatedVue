@@ -1,4 +1,3 @@
-
 import {
   readCode
 } from "../../../api/test";
@@ -7,7 +6,6 @@ import {
 } from "../../../api/test";
 // pages/catalogue/code/code.js
 var app = getApp()
-
 Page({
   /**
    * 页面的初始数据
@@ -73,14 +71,13 @@ Page({
   },
   gotoquestion: function () {
     wx.navigateTo({
-      url: '/pages/forum/questPut/questPut',
+      url: '/pages/catalogue/question/question',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     this.codeId = app.globalData.codeId
     this.setData({
       codeId: this.codeId
@@ -95,7 +92,6 @@ Page({
     }).catch(err => {
       console.log(err)
     })
-
   },
 
   /**

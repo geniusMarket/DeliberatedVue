@@ -60,7 +60,9 @@ Page({
         _this.setData({
           code: res.code
         })
-        console.log(_this.data.code)
+        // console.log(_this.data.code)
+        var user = JSON.parse(wx.getStorageSync('userInfo'))
+        wx.setStorageSync(user.nickName,user.avatarUrl)  //保存用户头像
       },
       fail: err => {
         console.log(err)
