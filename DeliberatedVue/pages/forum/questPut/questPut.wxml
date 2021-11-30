@@ -1,6 +1,8 @@
-<view class="codeBox">
-    <textarea disabled="readonly" style="margin:10rpx 15rpx;"></textarea>
-</view>
+<scroll-view class="code" scroll-y="true" scroll-x="true">
+    <!-- <text class="text" user-select="true">{{VueCode}}</text> -->
+    <htmltowxml text="{{VueCode}}" type="md" bindWxmlTagATap="wxmlTagATap"  highlightStyle="tomorrow">
+    </htmltowxml>
+</scroll-view>
 
 <view class="questPutBox">
     <image class="headPic" mode="widthFix" src="../../../images/v2_qbsucr.png"></image>

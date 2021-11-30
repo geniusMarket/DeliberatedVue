@@ -1,4 +1,14 @@
 /* 头像公用属性 */
+.code{
+    border: 5rpx solid #41b883;
+    border-radius: 20rpx; /*圆角*/
+    padding: 10rpx;
+    width: 600rpx;
+    max-height: 375rpx;
+    margin-top: 20rpx;
+    margin-left: 50rpx;
+    margin-bottom: 40rpx;
+}
 .headPic{
     /* height: 64rpx; */
     width: 64rpx;
@@ -6,11 +16,6 @@
     border-radius: 50%;
 }
 
-.codeBox{
-    margin: 25rpx 36rpx;
-    border: 2rpx solid grey;
-    border-radius: 30rpx;
-}
 
 .questPutBox{
     display: flex;

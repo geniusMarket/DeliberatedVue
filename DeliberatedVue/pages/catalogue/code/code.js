@@ -71,7 +71,7 @@ Page({
   },
   gotoquestion: function () {
     wx.navigateTo({
-      url: '/pages/catalogue/question/question',
+      url: '/pages/forum/questPut/questPut',
     })
   },
   /**
