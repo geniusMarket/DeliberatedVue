@@ -2,7 +2,10 @@
 let app = getApp()
 import {
     addQuestion,selectQuestion,addAnswer,selectAnswer
-} from "../../../api/forum"
+} from "../../../api/forum";
+import {
+    readCode
+} from "../../../api/test";
 
 Page({
 
@@ -12,7 +15,7 @@ Page({
     data: {
         rewardNum: [10, 20, 30],
         index: 0,
-        codeId: 0,
+        codeId: '',
         questions: [],
         answers:[],
         questDetail:"",
@@ -33,6 +36,22 @@ Page({
           codeId:this.codeId
           })
         this.selectQuestion();
+        this.readCode();
+    },
+
+    readCode: function () { //获取源码
+        let data = {
+          "path": this.data.codeId
+        }
+        readCode("POST", data, true).then(res => {
+          console.log("获取源码部分：", res)
+          // console.log(res.data.codeId)
+          this.setData({
+            VueCode: res.data.code
+          })
+        }).catch(err => {
+          console.log("获取源码部分：", err)
+        })
     },
 
     rewardPickListener: function (e) {
