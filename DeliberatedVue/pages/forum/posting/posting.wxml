@@ -3,40 +3,10 @@
     <view class="titleBox">
         <input placeholder="帖子标题" style="margin-left: 20rpx;" bindinput="titleInput"></input>
     </view>
-    <view class="sendBox" bindtap="sendPost">
-        <text>发布</text>
-    </view>
-</view>
-
-<view class="editContainer">
-    <view class="editBox">
-        <image src="../../../icon/blod.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>加粗</text>
-    </view>
-    <view class="editBox">
-        <image src="../../../icon/italic.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>斜体</text>
-    </view>
-    <view class="editBox">
-        <image src="../../../icon/titleIcon.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>标题</text>
-    </view>
-    <view class="editBox">
-        <image src="../../../icon/insert.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>插入</text>
-    </view>
-    <view class="editBox">
-        <image src="../../../icon/preview.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>预览</text>
-    </view>
-    <view class="editBox">
-        <image src="../../../icon/help.png" style="height: 50rpx;" mode="heightFix"></image>
-        <text>帮助</text>
-    </view>
+    <view class="sendBox" bindtap="sendPost">发布</view>
 </view>
 
 <view class="mainContianer">
-    <textarea class="textBody" bindinput="detailInput">
-    
+    <textarea class="textBody" bindinput="detailInput" maxlength="-1" placeholder="请输入帖子内容">
     </textarea>
 </view>

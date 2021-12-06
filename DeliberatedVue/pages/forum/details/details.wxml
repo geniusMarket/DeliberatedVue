@@ -1,6 +1,6 @@
 <view class="userBox">
     <view class="userInform">
-        <image src="/images/headpic.png" mode="heightFix"></image>
+        <image src="{{userInfo.avatarUrl}}" mode="heightFix" style="border-radius: 50%;"></image>
         <text style="margin-left: 5rpx;">{{userInfo.nickName}}</text>
     </view>
 </view>
@@ -20,7 +20,7 @@
 <view class="taberBoxBlock">
     <view class="taberBox">
         <view class="outTaber" bindtap="postLike">
-            <image src="{{likePost?'../../../icon/selectedLike.png':'../../../icon/like.png'}}" mode="heightFix"></image>
+            <image src="{{likesArticle == 1?'../../../icon/selectedLike.png':'../../../icon/like.png'}}" mode="heightFix"></image>
             <view style="font-size: medium;">点赞</view>
         </view>
         <view class="outTaber">
@@ -40,16 +40,15 @@
 <view class="containerBox" wx:for="{{comments}}" wx:key="index">
     <view class="commenterBox">
         <view class="commenterInform">
-            <image src="../../../images/headpic.png" mode="heightFix"></image>
-            <view style="margin-left: 20rpx;">{{item.data.replier}}</view>
-
+            <image src="{{commenterInfo[index].avatarUrl}}" mode="heightFix" style="border-radius: 50%;"></image>
+            <view style="margin-left: 20rpx;">{{commenterInfo[index].nickName}}</view>
         </view>
         <view class="likeNum" data-index="{{index}}" bindtap="commentLike">
-            <image src="../../../icon/like.png" mode="heightFix"></image>
+            <image src="{{likesComments[index] == 1?'../../../icon/selectedLike.png':'../../../icon/like.png'}}" mode="heightFix"></image>
             <text style="color: #606060;">{{item.data.likes}}</text>
         </view>
     </view>
-    <view class="commentContent">{{item.data.detail}}</view>
+    <view class="commentContent" bindlongpress="deleteCommentToast" data-index="{{index}}">{{item.data.detail}}</view>
 </view>
 
 <view class="end">
@@ -59,16 +58,7 @@
 <view class="comInputBox">
     <view class="inputBox">
         <textarea placeholder="输入评论内容" style="margin-left: 20rpx; height: 60rpx;margin-top: 10rpx;"
-            bindinput="commentInput"></textarea>
-        <block wx:if="{{sendCom}}">
-            <image src="../../../icon/sendComment.png" mode="heightFix"
-                style="height: 50rpx; margin-top: 10rpx; margin-right: 25rpx;" bindtap="sendComment"></image>
-        </block>
-    </view>
-    <view class="comIconBox">
-        <image src="../../../icon/smile.png" mode="heightFix"></image>
-    </view>
-    <view class="comIconBox">
-        <image src="../../../icon/addIcon.png" mode="heightFix"></image>
+            bindinput="commentInput" value="{{currentComment}}"></textarea>
+        <view class="commentSend" bindtap="sendComment">发送</view>
     </view>
 </view>

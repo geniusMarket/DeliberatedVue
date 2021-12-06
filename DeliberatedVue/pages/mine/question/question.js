@@ -1,33 +1,28 @@
 // pages/mine/question/question.js
 import {
     getQuestion
-  } from "../../../api/mine"
+} from "../../../api/mine";
+
+import {
+    delQuestion,
+    locationCode
+} from "../../../api/forum";
+
+import {
+    readCode
+} from "../../../api/test";
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
-        question: [{
-                avatarUrl: 'https://thirdwx.qlogo.cn/mmopen/vi_32/nibb7W6bx5xmrjJFlw7W5iaXhvRiathQIBYJnaWDEEngkRr8Pkfa4zcicTq8AGPld2X2DkeuPAEJ1L4ib3CcibSicoytQ/132',
-                nickName: 'fdsf',
-                time: '昨天 00：18',
-                question: '提问1\ndwd\ndasdsadsaadfsfesfefefesfffesdsfdsfdsfsdfsfsdfdsfdsfd\ndsads\ndsads\ndsads\ndsads\ndsads'
-            },
-            {
-                avatarUrl: 'https://thirdwx.qlogo.cn/mmopen/vi_32/nibb7W6bx5xmrjJFlw7W5iaXhvRiathQIBYJnaWDEEngkRr8Pkfa4zcicTq8AGPld2X2DkeuPAEJ1L4ib3CcibSicoytQ/132',
-                nickName: 'fdsdfsdsf441',
-                time: '前天 22：13',
-                question: '提问2'
-            },
-            {
-                avatarUrl: 'https://thirdwx.qlogo.cn/mmopen/vi_32/nibb7W6bx5xmrjJFlw7W5iaXhvRiathQIBYJnaWDEEngkRr8Pkfa4zcicTq8AGPld2X2DkeuPAEJ1L4ib3CcibSicoytQ/132',
-                nickName: 'fdsss135',
-                time: '2021-11-22 04：18',
-                question: '提问3'
-            },
-        ]
+        question: [],
+        userInfo: [],
+        codeId: [],
+        isShow: true,
+        VueCode:[]
     },
 
     /**
@@ -35,64 +30,91 @@ Page({
      */
     onLoad: function (options) {
         this.getQuestion()
+        this.setData({
+            userInfo: eval('(' + wx.getStorageSync('userInfo') + ')')
+        })
     },
+
+    // 获取提问列表
     getQuestion() {
         let data = {
             "openId": wx.getStorageSync('openId')
         }
         console.log(data)
         getQuestion("POST", data, true).then(res => {
+            this.setData({
+                question: res.data,
+                isShow: false
+            })
+            for(var i = 0; i < this.data.question.length; i++){
+                this.data.codeId[i] = this.data.question[i].codeId
+            };
+            this.setData({
+                codeId: this.data.codeId
+            })
+            console.log("question", this.data.question)
+            console.log("codeId",this.data.codeId)
+            for(var i = 0; i < this.data.codeId.length; i++){
+                this.locationCode(i);
+            }
+        }).catch(err => {
+            console.log(err)
+        })
+        this.setData({
+            isShow: true
+        })
+    },
+
+    // 删除问题
+    delQuestion(index) {
+        let data = {
+            "questionId": this.data.question[index].questionId
+        }
+        delQuestion("POST", data, true).then(res => {
             console.log(res)
         }).catch(err => {
             console.log(err)
         })
-    },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+        this.getQuestion();
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
+    // 删除问题确定弹窗
+    deleteToast(e) {
+        var that = this;
+        wx.showModal({
+            title: '确定删除该提问吗？',
+            success: function (res) {
+                if (res.confirm) that.delQuestion(e.currentTarget.dataset.index);
+            }
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
+    readCode: function (codePath,index) { //获取源码
+        let data = {
+            "path": codePath
+        }
+        console.log(data)
+        readCode("POST", data, true).then(res => {
+            console.log("获取源码部分：", index, res)
+            this.data.VueCode[index] = res.data.code
+            this.setData({
+                VueCode: this.data.VueCode
+            })
+        }).catch(err => {
+            console.log("获取源码部分：", err)
+        })
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
+    //   通过codeId获取源码路径
+    locationCode: function (index) { 
+        let data = {
+            "codeId": this.data.codeId[index]
+        }
+        locationCode("POST", data, true).then(res => {
+            this.readCode(res.data.filePath,index)
+            console.log("源码路径", res.data.filePath)
+        }).catch(err => {
+            console.log("获取源码路径", err)
+        })
     },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

@@ -27,6 +27,9 @@
     padding: 15rpx;
     height: 260rpx;
 }
+.hiddenArea{    /*隐藏输入框*/
+    z-index: -1;
+}
 .questArea{
     height: 250rpx;
 }
@@ -69,6 +72,10 @@
 }
 
 /* 提问内容部分 */
+.questionsContainer{
+    display: flex;
+    flex-direction: column-reverse;
+}
 .questionsBox{
     margin-top: 28rpx;
     margin-right: 28rpx;
@@ -128,12 +135,14 @@
     width: 80%;
     margin-top: 40%;
     margin-left: 10%;
+    z-index: 120;
 }
 .toastQuest{
     height: 150rpx;
     width: 100%;
     background-color: #80d0ac;
     font-size: large;
+    color: white;
 }
 .toastAnswer{
     height: 250rpx;
@@ -156,4 +165,34 @@
 }
 .toastCancel{
     border-right: 2rpx solid white;
+}
+
+/* 从我的提问入口进入后的采纳回答页面 */
+/* 从我的提问入口进入后的采纳回答页面 */
+/* 从我的提问入口进入后的采纳回答页面 */
+.myQuestionBox{
+    display: flex;
+    flex-direction: column;
+    margin: 20rpx;
+}
+.myQuestionTitle{
+    font-size: 50rpx;
+    margin: 25rpx 0;
+}
+.myQuestionDetail{
+    font-size: large;
+}
+.myQuestionTip{
+    margin-top: 45rpx;
+    margin-left: 8rpx;
+    font-size: 30rpx;
+    color: rgb(131, 129, 129);
+}
+.myQuestAnswerBox{
+    margin: 20rpx;
+}
+.myQuestAnswers{
+    display: flex;
+    flex-direction: row;
+    margin: 25rpx 0;
 }
