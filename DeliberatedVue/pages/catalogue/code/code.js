@@ -17,6 +17,11 @@ Page({
     display: 'none',
     comment: '',
   },
+  return(){
+    wx.navigateBack({
+      delta:6
+    })
+  },
   //取消按钮 
   cancel: function () {
     this.setData({
@@ -82,6 +87,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // console.log(options)
     this.codeId = app.globalData.codeId
     this.setData({
       codeId: this.codeId

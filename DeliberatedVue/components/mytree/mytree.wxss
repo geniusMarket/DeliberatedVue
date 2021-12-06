@@ -17,6 +17,6 @@
   text-overflow: ellipsis;
   width: 90%;
   font-size: 28rpx;
-  font-weight: 180;
+  font-weight: 300;
   font-family: Arial, Helvetica, sans-serif;
 }
