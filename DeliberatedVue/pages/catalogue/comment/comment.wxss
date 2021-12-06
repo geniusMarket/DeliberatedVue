@@ -95,6 +95,11 @@
   font-size: 25rpx;
   letter-spacing: 3rpx;
 }
+.likeareply_all{
+  display: flex;
+  justify-content: space-between;
+}
+
 .likeareply{
   display: flex;
 }

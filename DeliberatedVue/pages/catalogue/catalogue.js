@@ -8,7 +8,7 @@ Page({
   data: {
       codeId:'',
       temp:true,
-      treeList: {text: 'Vue源码阅读',id: 'src',nodes: [{
+      treeList1: {
                    text: '1.compiler',id: "src\\\\compiler",nodes:[{
                       text:'1.1 codegen',id:"src\\\\compiler\\\\codegen",nodes:[{
                             text:'1.1.1 events',id:"src\\\\compiler\\\\codegen\\\\events.js"},{
@@ -30,9 +30,10 @@ Page({
                       text:'1.7 helpers',id:'src\\\\compiler\\\\helpers.js'},{
                       text:'1.8 index',id:'src\\\\compiler\\\\index.js'},{
                       text:'1.9 optimizer',id:'src\\\\compiler\\\\optimizer.js'},{
-                      text:'1.10 to-function',id:'src\\\\compiler\\\\to-function.js'},
-            ]},{
-                text:'2.core',id:'src////core',nodes:[{
+                      text:'1.10 to-function',id:'src\\\\compiler\\\\to-function.js'}
+            ]},
+        treeList2:{
+                text:'2.core',id:'src\\\\core',nodes:[{
                       text:'2.1 components',id:'src\\\\core\\\\components',nodes:[{
                               text:'2.1.1 index',id:'src\\\\core\\\\components\\\\index.js'},{
                               text:'2.1.2 keep-alive',id:'src\\\\core\\\\components\\\\keep-alive.js'}]},{
@@ -101,7 +102,9 @@ Page({
                               text:'2.6.6 patch',id:'src\\\\core\\\\vdom\\\\patch.js'},{
                               text:'2.6.7 vnode',id:'src\\\\core\\\\vdom\\\\vnode.js'},]},{
                       text:'2.7 config',id:'src\\\\core\\\\config.js'},{
-                      text:'2.8 index',id:'src\\\\core\\\\index.js'},]},{
+                      text:'2.8 index',id:'src\\\\core\\\\index.js'}]},
+                      
+        treeList3:{
               text:'3.platforms',id:'src\\\\platforms',nodes:[{
                       text:'3.1 web',id:'src\\\\platforms\\\\web',nodes:[{
                               text:'3.1.1 compiler',id:'src\\\\platforms\\\\web\\\\compiler',nodes:[{
@@ -217,9 +220,10 @@ Page({
                                     text:'parser',id:'src\\\\platforms\\\\weex\\\\util\\\\parser.js'}]},{
                         text:'3.2.4 entry-compiler',id:'src\\\\platforms\\\\weex\\\\entry-compiler.js'},{
                         text:'3.2.5 entry-framework',id:'src\\\\platforms\\\\weex\\\\entry-framework.js'},{
-                        text:'3.2.6 entry-runtime-factory',id:'src\\\\platforms\\\\weex\\\\entry-runtime-factory.js'}]}]},{
+                        text:'3.2.6 entry-runtime-factory',id:'src\\\\platforms\\\\weex\\\\entry-runtime-factory.js'}]}]},
+        treeList4:{
               text:'4.server',id:'src\\\\server',nodes:[{
-                        text:'4.1 src\\\\server\\\\bundle-renderer',id:'',nodes:[{
+                        text:'4.1 bundle-renderer',id:'',nodes:[{
                                 text:"4.1.1 create-bundle-renderer",id:'src\\\\server\\\\bundle-renderer\\\\create-bundle-renderer.js'},{
                                 text:"4.1.2 create-bundle-runner",id:'src\\\\server\\\\bundle-renderer\\\\create-bundle-runner.js'},{
                                 text:"4.1.3 source-map-support",id:'src\\\\server\\\\bundle-renderer\\\\source-map-support.js'}]},{
@@ -244,13 +248,17 @@ Page({
                         text:'4.8 render-context',id:'src\\\\server\\\\render-context.js'},{
                         text:'4.9 render-stream',id:'src\\\\server\\\\render-stream.js'},{
                         text:'4.10 util',id:'src\\\\server\\\\util.js'},{
-                        text:'4.11 write',id:'src\\\\server\\\\write.js'},]},{
+                        text:'4.11 write',id:'src\\\\server\\\\write.js'}]},
+        treeList5:{
               text:'5.sfc',id:'src\\\\sfc',nodes:[{
-                      text:'5.1 parser',id:'src\\\\sfc\\\\parser.js'}]},{
-              text:'6.shared',id:'src\\\\shared',nodes:[{
+                      text:'5.1 parser',id:'src\\\\sfc\\\\parser.js'}]},
+        treeList6:{
+                text:'6.shared',id:'src\\\\shared',nodes:[{
                       text:'6.1 constants',id:'src\\\\shared\\\\constants.js'},{
-                      text:'6.2 util',id:'src\\\\shared\\\\util.js'}]}]}
-      },
+                      text:'6.2 util',id:'src\\\\shared\\\\util.js'}]
+                }
+  }
+      ,
 
     panel: function (e) {
         if (e.currentTarget.dataset.index != this.data.showIndex) {
@@ -271,5 +279,6 @@ Page({
         // console.log(this.codeId)
       },
       onLoad:function(){
+        
       },
   })
