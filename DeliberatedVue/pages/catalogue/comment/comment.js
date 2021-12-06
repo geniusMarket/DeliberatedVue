@@ -1,5 +1,6 @@
 // pages/catalogue/comment/comment.js
 var app = getApp()
+var util = require("../../../utils/util");
 import {
   addAnnotation
 } from "../../../api/test";
@@ -47,7 +48,8 @@ Page({
     var that = this;
     if (e.detail.value.event == '') {
       wx.showToast({
-        title: '注释为空',
+        title: '注释不能为空！',
+        icon:'error'
       })
     } else {
       console.log('发表注释：', e.detail.value.event)
@@ -62,11 +64,30 @@ Page({
     }
   },
 
+  timeTest(dateStr) {  //获取时间
+    var timeNow = util.formatTime(new Date());
+    timeNow = timeNow.replace(/-/g, '/');
+    timeNow = Date.parse(timeNow);
+    // console.log(timeNow);
+    var diffValue = (timeNow - dateStr)/1000;
+    // console.log(diffValue);
+    var diffDays = parseInt(diffValue / 86400);
+    var diffHours = parseInt(diffValue / 3600);
+    var diffMinutes = parseInt(diffValue / 60);
+    var diffSeconds = parseInt(diffValue);
+    if(diffDays > 365) return parseInt(diffDays / 365) + "年前";
+    else if(diffDays > 30) return parseInt(diffDays / 30) + "月前";
+    else if(diffDays > 10) return "一个月内";
+    else if(diffDays > 0) return diffDays + "天前";
+    else if(diffHours > 0) return diffHours + "小时前";
+    else if(diffMinutes > 0) return diffMinutes + "分钟前";
+    else return diffSeconds + "秒前";
+},
 
   addAnnotation: function () { //添加注释
     //post到服务器
     let data = {
-      "userId":  app.globalData.userName,
+      "userId":  wx.getStorageSync('openId'),
       "filePath": this.data.codeId,
       "moduleName": this.data.codeId,
       "detail": this.data.comment
@@ -118,7 +139,7 @@ Page({
       "annotationId": annotation.data.annotationId
     }
     annotationLikes("POST", data, true).then(res => {
-      // console.log("点赞注释部分返回的like_num：", res.data.likes)
+      console.log("点赞注释部分返回的like_num：", res.data.likes)
       // console.log('点赞注释部分里的annotation:', annotation)
       // console.log('点赞注释里的注释列表',this.data.username)
       this.setData({
@@ -193,14 +214,14 @@ Page({
     for (let i in value) {
       //遍历列表数据
       if (i == index) {
-        if (value[i].is_like) {
-          value[i].is_like = false,
+        if (value[i].is_like==1) {
+          value[i].is_like = 0,
           value[i].like_num = parseInt(value[i].like_num) - 1,
           value[i].like_src = "/icon/zan.png"
-        } else if (!value[i].is_like) {
+        } else if (value[i].is_like==0) {
           this.annotationLikes(index)
-          value[i].is_like = true,
-          console.log('点赞函数里的like_num',this.data.likes)
+          value[i].is_like = 1,
+          // console.log('点赞函数里的like_num',this.data.likes)
           value[i].like_num = this.data.likes
           value[i].like_src = "/icon/selectedzan.png"
         }
@@ -229,14 +250,14 @@ Page({
         if (value[i].is_reply) {
           value[i].is_reply = false,
             value[i].reply_src = "/icon/reply.png"
-        } else if (!value[i].is_like) {
+        } else if (!value[i].is_reply) {
           // console.log(annotationId)
           this.selectAnnotationReply(annotationId)
           value[i].is_reply = true,
-            value[i].reply_src = "/icon/selectedreply.png"
+          value[i].reply_src = "/icon/selectedreply.png"
         }
       } else {
-        value[i].is_reply = false,
+          value[i].is_reply = false,
           value[i].reply_src = "/icon/reply.png"
       }
     }
@@ -252,15 +273,22 @@ Page({
     // console.log(e)
     var that = this;
     console.log('发表评论：', e.detail.value.comment_details)
-    this.setData({
-      comment2: e.detail.value.comment_details
-    })
-    // console.log(this.data.comment2)
-    // console.log(this.data.annotationId)
-    this.addAnnotationReply()
-    that.setData({
-      form_info: '' //清空输入框内容
-    })
+    if(e.detail.value.comment_details==''){
+      wx.showToast({
+        title: '评论不能为空！',
+        icon:'error'
+      })
+    }else{
+      this.setData({
+        comment2: e.detail.value.comment_details
+      })
+      // console.log(this.data.comment2)
+      // console.log(this.data.annotationId)
+      this.addAnnotationReply()
+      that.setData({
+        form_info: '' //清空输入框内容
+      })
+    }
   },
 
   readCode: function () { //获取源码
@@ -278,16 +306,17 @@ Page({
     })
   },
 
-  selectAnnotation: function () { //获取注释和回复
+  selectAnnotation: function () { //获取注释
     //post到服务器
     var annotations_new = []
     let data = {
       "moduleName": this.data.codeId,
-      "type": "notall"
+      "type": "notall",
+      // "openId": wx.getStorageSync('openId')
     }
     console.log(this.data.codeId)
     selectAnnotation("POST", data, true).then(res => {
-      console.log("获取注释部分返回：", res.data)
+      console.log("获取注释部分返回：", res)
       this.setData({
         annotations: res.data
       })
@@ -296,33 +325,35 @@ Page({
         var reply = []
         var fold = false //是否显示“展开”二字，默认不显示
         let data = {
-          "annotationId": annotation.data.annotationId
+          "annotationId": annotation.data.annotationId,
+          "openId": wx.getStorageSync('openId')
         }
         // console.log("user",annotation.data)
-        selectAnnotationReply("POST", data, true).then(res => {
-          // console.log("获取回复部分：", res.data)
-          reply.push(res.data)
-          this.setData({
-            reply: reply
-          })
-          wx.setStorageSync('reply', this.data.reply)
-          // console.log(this.data.reply)
-        }).catch(err => {
-          console.log("获取回复部分：", err)
-        })
+        // selectAnnotationReply("POST", data, true).then(res => {
+        //   // console.log("获取回复部分：", res.data)
+        //   reply.push(res.data)
+        //   this.setData({
+        //     reply: reply
+        //   })
+        //   wx.setStorageSync('reply', this.data.reply)
+        //   // console.log(this.data.reply)
+        // }).catch(err => {
+        //   console.log("获取回复部分：", err)
+        // })
         if (annotation.data.detail.length > 38) {
           fold = true
         }
+        var userInfo = JSON.parse(annotation.user.userInfo)
         var obj = {
-          name: annotation.data.userId,
-          userImg:wx.getStorageSync(annotation.data.userId),
+          name: userInfo.nickName,
+          userImg:userInfo.avatarUrl,
           comment_text: annotation.data.detail,
           annotationId: annotation.data.annotationId,
           fold: fold,
           is_show: "展开",
-          is_like: false,
+          is_like: annotation.likeRecord,
           like_num: annotation.data.likes,
-          pub_time: "3分钟前",
+          pub_time: this.timeTest(annotation.data.createTime),
           is_reply: false,
           reply: wx.getStorageSync('reply')[i],
           ellipsis: true, // 文字是否收起，默认收起
@@ -344,7 +375,7 @@ Page({
   addAnnotationReply: function () {
     // console.log(this.data.annotationId)
     let data = {
-      "userId":  app.globalData.userName,
+      "userId": wx.getStorageSync('openId'),
       "detail": this.data.comment2,
       "annotationId": this.data.annotationId
     }
@@ -359,15 +390,17 @@ Page({
   //获取回复
   selectAnnotationReply(annotationId) {
     let data = {
-      "annotationId": annotationId
+      "annotationId": annotationId,
+      "openId": wx.getStorageSync('openId')
     }
     var annotationReply = []
     selectAnnotationReply("POST", data, true).then(res => {
       console.log("获取回复部分：", res)
       for (var i = 0; i < res.data.length; i++) {
         var reply = res.data[i]
-        var userId = reply.data.userId
-        var userImage = wx.getStorageSync(userId)
+        var userInfo = JSON.parse(reply.user.userInfo)
+        var userId = userInfo.nickName
+        var userImage = userInfo.avatarUrl
         var detail = reply.data.detail
         var replyId = reply.data.replyId
         var obj = {
@@ -447,4 +480,5 @@ Page({
     this.selectAnnotation() // 获取注释
   }
 
+  
 })

@@ -45,24 +45,28 @@ Page({
     // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     this.codeId = app.globalData.codeId
     var comment = e.detail.value.comment
-    this.setData({
-      codeId: this.codeId,
-      comment: comment
-    })
-    let data = {
-      "userId": "DSAsddad",
-      "filePath": this.data.codeId,
-      "moduleName": this.data.codeId,
-      "detail": this.data.comment
-      // "userId": "DSAsddad",
-      // "filePath": "src\\\\compiler\\\\codeframe.js",
-      // "moduleName": "src\\\\compiler\\\\codeframe.js",
-      // "detail": "具体内容"
+    if(comment==''){
+      wx.showToast({
+        title: '注释不能为空！',
+        icon:'error'
+      })
     }
-    console.log(data)
-    addAnnotation("POST", data, true).then(res => {
-      console.log(res)
-    })
+    else{
+        this.setData({
+          codeId: this.codeId,
+          comment: comment
+        })
+        let data = {
+          "userId": app.globalData.userName,
+          "filePath": this.data.codeId,
+          "moduleName": this.data.codeId,
+          "detail": this.data.comment
+        }
+        console.log(data)
+        addAnnotation("POST", data, true).then(res => {
+          console.log(res)
+        })
+      }
   },
   gotocomment: function () {
     wx.navigateTo({
@@ -87,7 +91,18 @@ Page({
     }
     readCode("POST", data, true).then(res => {
       this.setData({
-        VueCode: res.data.code
+        VueCode: res.data.code,
+      })
+      var new_CodeList = []
+      var CodeList= res.data.code.split('\n\n')
+      for(let i in CodeList){
+        // console.log(CodeList[i])
+          var code = CodeList[i] 
+          new_CodeList.push(code)
+      }
+      // console.log(new_CodeList)
+      this.setData({
+        CodeList: new_CodeList,
       })
     }).catch(err => {
       console.log(err)
