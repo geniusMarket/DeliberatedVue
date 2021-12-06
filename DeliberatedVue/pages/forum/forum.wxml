@@ -11,16 +11,12 @@
 
 <view class="userBox">
     <view class="userInform">
-        <view class="headpicBox">
-            <image src="/images/headpic.png" mode="heightFix"></image>
-        </view>
-        <view class="usernameBox">
-            <text>userName</text>
-        </view>
+        <image src="{{userInfo.avatarUrl}}" mode="heightFix" class="headPic"></image>
+        <text>{{userInfo.nickName}}</text>
     </view>
-    <view class="myQuestion">
-        <text style="color: #606060;">我的问答 ></text>
-    </view>
+    <navigator class="myQuestion" url="../mine/question/question">
+        <text style="color: #363636;">我的问答 ></text>
+    </navigator>
 </view>
 
 <view class="kindBox">
@@ -32,40 +28,20 @@
 
 <view class="fillBox"></view>
 <view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
-
-    <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}">
-
-        <view class="postTitle">
-            <view>{{item.data.title}}</view>
-            <view class="pointBox">
-                <image src="../../icon/points.png" mode="heightFix"></image>
-                <text style="color: #FFD700;">20</text>
-            </view>
-        </view>
+    <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}&likesArticle={{likesRecord[index]}}">
+        <view class="postTitle">{{item.data.title}}</view>
         <view class="taberBox">
             <view class="outTaber">
-                <view class="taberIconBox">
-                    <image src="../../icon/like.png" mode="heightFix"></image>
-                </view>
-                <view class="taberTextBox">
-                    <text>点赞</text>
-                </view>
+                <image src="{{likesRecord[index] == 1?'../../icon/selectedLike.png':'../../icon/like.png'}}" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;"></image>
+                <text style="font-size: small;">点赞</text>
             </view>
             <view class="outTaber">
-                <view class="taberIconBox">
-                    <image src="../../icon/reward.png" mode="heightFix"></image>
-                </view>
-                <view class="taberTextBox">
-                    <text>打赏</text>
-                </view>
+                <image src="../../icon/reward.png" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;"></image>
+                <text style="font-size: small;">打赏</text>
             </view>
             <view class="outTaber">
-                <view class="taberIconBox">
-                    <image src="../../icon/comment.png" mode="heightFix"></image>
-                </view>
-                <view class="taberTextBox">
-                    <text>评论</text>
-                </view>
+                <image src="../../icon/comment.png" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;"></image>
+                <text style="font-size: small;">评论</text>
             </view>
         </view>
     </navigator>
