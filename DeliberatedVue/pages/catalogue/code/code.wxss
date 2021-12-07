@@ -62,8 +62,21 @@
   z-index: 1002;
   overflow: auto;
 }
+
+
 .code{
   border: 5rpx solid #41b883;
+  background: rgba(65,184,131,0.1);
+  border-radius: 20rpx; /*圆角*/
+  padding: 10rpx;
+  width: 600rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  margin-bottom: 40rpx;
+}
+
+.code_unchose{
+  border: 5rpx solid #b6eed5;
   border-radius: 20rpx; /*圆角*/
   padding: 10rpx;
   width: 600rpx;
