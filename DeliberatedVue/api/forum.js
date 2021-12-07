@@ -21,11 +21,11 @@ export function articleReplies(method, data, loading) {
 }
 
 export function addQuestion(method, data, loading) {
-    return request("addQuestion", method, data)
+    return request("addQuestion", method, data, loading)
 }
 
 export function selectQuestion(method, data, loading) {
-    return request("selectQuestion", method, data)
+    return request("selectQuestion", method, data, loading)
 }
 
 export function addAnswer(method, data, loading) {
@@ -53,32 +53,4 @@ export function selectArticles(method, data, loading) {
 
 export function articleReplyLikes(method, data, loading) {
     return request("articleReplyLikes", method, data, loading)
-}
-
-export function delQuestion(method, data, loading) {
-    return request("delQuestion", method, data, loading)
-}
-
-export function delArticleReply(method, data, loading) {
-    return request("delArticleReply", method, data, loading)
-}
-
-export function getScore(method, data, loading) {
-    return request("getScore", method, data)
-}
-
-export function addScore(method, data, loading) {
-    return request("addScore", method, data)
-}
-
-export function locationCode(method, data, loading) {
-    return request("locationCode", method, data,loading)
-}
-
-export function getQuestionIsAccept(method, data, loading) {
-    return request("getQuestionIsAccept", method, data,loading)
-}
-
-export function acceptAnswer(method, data, loading) {
-    return request("acceptAnswer", method, data,loading)
 }
