@@ -1,6 +1,21 @@
 // pages/skillTree/childrenTree/childrenTree.js
 import * as echarts from '../../../components/ec-canvas/echarts';
 let app = getApp()
+var name
+
+var tree 
+var data1
+var data2
+var data3 
+var data4
+var data5
+var data6
+var data7
+var data8 
+var data9 
+var data10
+
+var section
 Page({
   /**
    * 页面的初始数据
@@ -43,6 +58,8 @@ Page({
       onInit: initChart
     },
 
+    type: 'a',
+
   },
   tabChange: function (e) {
     var index = e.detail.index
@@ -66,9 +83,20 @@ Page({
     }
   },
 
-  onLoad () {
+  onLoad: function (options) {
+    name = options.name
 
-    
+    tree = wx.getStorageSync('skillTree');
+    data1 = tree[1]
+    data2 = tree[2]
+    data3 = tree[3]
+    data4 = tree[4]
+    data5 = tree[5]
+    data6 = tree[6]
+    data7 = tree[7]
+    data8 = tree[8]
+    data9 = tree[9]
+    data10 = tree[10]
   }
 
 });
@@ -77,90 +105,53 @@ function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
     height: height,
-    devicePixelRatio: dpr // new
+    devicePixelRatio: dpr, // new
   });
   canvas.setChart(chart);
-  var data1 = {
-    "name": "组件",
-    "children": [{
-      "name": "组件基础",
-      "children": [{
-        "name": "events.js",
-      }, {
-        "name": "cextract-props.js"
-      }]
-    }, {
-      "name": "组件",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    },{
-      "name": "props",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    },
-    {
-      "name": "插槽",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    },
-    {
-      "name": "作用域插槽",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    },
-    {
-      "name": "异步组件",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    },
-    {
-      "name": "自定义事件",
-      "children": [{
-        "name": "assets.js"
-      }, {
-        "name": "create-component.js"
-      }, {
-        "name": "create-element.js"
-      }, {
-        "name": "options.js"
-      }]
-    }]
-  };
+  var treeData;
+  switch (name) {
+    case "组件":
+      treeData = data1
+      section = 1
+      break;
+    case "class与style绑定":
+      treeData = data2
+      section = 2
+      break;
+    case "渲染":
+      treeData = data3
+      section = 3
+      break;
+    case "事件处理":
+      treeData = data4
+      section = 4
+      break;
+    case "混合":
+      treeData = data5
+      section = 5
+      break;
+    case "表单输入绑定":
+      treeData = data6
+      section = 6
+      break;
+    case "过滤器":
+      treeData = data7
+      section = 7
+      break;
+    case "插件":
+      treeData = data8
+      section = 8
+      break;
+    case "渲染函数":
+      treeData = data9
+      section = 9
+      break;
+    case "自定义指令":
+      treeData = data10
+      section = 10
+      break;
+
+  }
 
   var option = {
     series: [{
@@ -170,10 +161,10 @@ function initChart(canvas, width, height, dpr) {
 
       name: 'skillTree',
 
-      data: [data1],
+      data: [treeData],
 
       top: '3%',
-      left: '10%',
+      left: '15%',
       bottom: '10%',
       right: '20%',
 
@@ -192,8 +183,6 @@ function initChart(canvas, width, height, dpr) {
           fontSize: 30
         }
       }
-
-
     }]
   };
 
@@ -206,21 +195,21 @@ function initChart(canvas, width, height, dpr) {
     if (param.event.target.culling === true) {
       let args = param.data; //当前节点及其子节点的值
       let level = param.dataIndex; //当前节点的层级 
-      console.log(param)
-      console.log(level)
-      if (level == 3) {
-        wx.navigateTo({  
-          url: '/pages/catalogue/code/code'  
+      console.log(param.data)
+      if (param.data.children == null) {
+        app.globalData.codeId = param.data.codeId
+        wx.navigateTo({
+          url: '/pages/catalogue/code/code?name=' + param.data.name + '&father=' + param.data.father + '&isLightUp=' + param.data.isLightUp + '&section=' + section
         });
       }
-      
 
     } else if (param.event.target.culling === false) {
       let args = param.data; //当前节点及其子节点的值
       let level = param.data.level; //当前节点的层级 eg:"1-1-0",可以通过level判断当前的层级，从而进行不同的操作
-      if (level == 3) {
-        wx.navigateTo({  
-          url: '/pages/catalogue/code/code'  
+      if (param.data.children == null) {
+        app.globalData.codeId = param.data.codeId
+        wx.navigateTo({
+          url: '/pages/catalogue/code/code?name=' + param.data.name + '&father=' + param.data.father + '&isLightUp=' + param.data.isLightUp + '&section=' + section
         });
       }
     }

@@ -2,11 +2,10 @@
 
 /* 提问列表 */
 .questionList {
-    width: 94%;
+    height: 350rpx;
+    width: 100%;
     position: relative;
-    margin: 3%;
-    display: flex;
-    flex-direction: column;
+    margin: 20rpx;
 }
 
 /* 头像 */
@@ -31,47 +30,17 @@
     font-size: 12px;
 }
 
-/* 删除按钮 */
-.delete{
-    height: 60rpx;
-    width: 120rpx;
-    background-color: whitesmoke;
-    color: rgb(255, 30, 30);
-    border-radius: 10rpx;
-    position: absolute;
-    right: 28rpx;
-    top: 10rpx;
-    text-align: center;
-    line-height: 60rpx;
-    font-weight: 525;
-}
-
 /* 问题栏 */
 .question {
-    height: 320rpx;
-    width: 95%;
+    height: 210rpx;
+    width: 90%;
     background-color: #d9f1e6;
     position: relative;
     border: 1.5rpx solid #d4d4d4;
     border-radius: 10rpx;
-    padding: 10rpx;
 }
 
 /* 信息栏 */
 .top {
-    width: 100%;
-}
-
-/* 问题内容框 */
-.questionBox{
-    width: 95%;
-    margin: 12rpx 8rpx;
-}
-
-.end{
-    margin-top: 100rpx;
-    margin-bottom: 120rpx;
-    display: flex;
-    justify-content: center;
-    font-size: 28rpx;
+    margin: 10rpx;
 }

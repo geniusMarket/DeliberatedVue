@@ -37,11 +37,10 @@ Component({
     },
     treenodetap: function(e) { // 递归的最终子节点
       var item = e.detail.item;
-      // console.log("end",e)
       app.globalData.codeId = e.detail.item.id;
       this.triggerEvent('treeTap', { item }); // 将当前的点击项的数据传递给父页面
-      wx.navigateTo({
-        url: '/pages/catalogue/code/code?id='+e.detail.item.id,
+      wx.navigateTo({  
+        url: '/pages/catalogue/code/code'  
       }); 
     }
   }

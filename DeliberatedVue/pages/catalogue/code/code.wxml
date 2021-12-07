@@ -2,7 +2,8 @@
 <!-- <modal id = "modal" hidden = "{{hiddenmodalput}}" confirm-text = "确定" cancel-text = "取消" bindcancel = "cancel" bindconfirm = "confirm" > 
   <textarea type = 'text' class="comment" placeholder = "请输入注释" auto - focus></textarea>  
 </modal>  -->
-<button bindtap='return' class='return' size="mini">目录</button>
+<!-- <button bindtap='return' class='return' size="mini">目录</button> -->
+<button bindtap='lightUp' class='lightUp' size="mini">{{lightUpMsg}}</button>
 <view class="wincom" style='display:{{display}}'>
   <form bindsubmit="formSubmit" bindreset="formReset" class="comment">
     <button class="sub" size="mini" bindtap="confirm" form-type="submit" style='display:{{display}}'>

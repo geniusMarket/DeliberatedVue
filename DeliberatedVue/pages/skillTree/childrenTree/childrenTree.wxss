@@ -3,6 +3,11 @@ page{
   background-color: #153641;
 }
 
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+}
+
 .footer {
   display: flex;
   align-items: flex-end;
@@ -14,4 +19,12 @@ page{
 ec-canvas {
   width: 100%;
   height: 100%;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-size:100% 100%;
+  z-index: -1;
 }
