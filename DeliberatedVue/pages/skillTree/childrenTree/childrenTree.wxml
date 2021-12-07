@@ -1,13 +1,10 @@
 <!--pages/skillTree/childrenTree/childrenTree.wxml-->
 
 <view class="container">
-
-  <view class="background">
-    <image class="backgroundImage" src="/images/background.jpeg"></image>
-  </view>
-  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas> 
   <view class="footer"></view>
 </view>
 
 
 <tabbar data="{{tabbar}}" bindchange="tabChange"></tabbar>
+

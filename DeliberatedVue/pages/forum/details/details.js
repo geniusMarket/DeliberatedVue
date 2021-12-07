@@ -31,6 +31,7 @@ Page({
 			articleId: options.articleId,
 			likesArticle: options.likesArticle
 		})
+		console.log(wx.getStorageSync('openId'))
 		this.getArticle();
 		this.articleReplies();
 	},
@@ -44,7 +45,7 @@ Page({
 		getArticle("POST", data, true).then(res => {
 			that.setData({
 				article: res.data.data.detail,
-				userInfo: eval('(' + res.data.user.userInfo + ')')
+				userInfo: JSON.parse(res.data.user.userInfo)
 			})
 			console.log("userInfo ", this.data.userInfo)
 		}).catch(err => {
@@ -100,8 +101,9 @@ Page({
 				comments: res.data,
 				likesComments: res.likesRecord
 			})
+			console.log("comments",res.data)
 			for(var i = 0; i < this.data.comments.length; i++){
-				this.data.commenterInfo[i] = eval('(' + this.data.comments[i].user.userInfo + ')');
+				this.data.commenterInfo[i] = JSON.parse(this.data.comments[i].user.userInfo);
 			}
 			this.setData({
 				commenterInfo: this.data.commenterInfo

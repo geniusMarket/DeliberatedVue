@@ -28,7 +28,7 @@
 
 <view class="fillBox"></view>
 <view class="postBoxOuter" wx:for="{{postList}}" wx:key="index">
-    <navigator class="postBox" url="./details/details?articleId={{item.data.articleId}}&likesArticle={{likesRecord[index]}}">
+    <view class="postBox" bindtap="gotoDetails" data-index="{{index}}">
         <view class="postTitle">{{item.data.title}}</view>
         <view class="taberBox">
             <view class="outTaber">
@@ -44,7 +44,7 @@
                 <text style="font-size: small;">评论</text>
             </view>
         </view>
-    </navigator>
+    </view>
 </view>
 <view class="fillBox"></view>
 

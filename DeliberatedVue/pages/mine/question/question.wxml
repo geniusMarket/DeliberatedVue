@@ -1,12 +1,20 @@
 <!--pages/mine/question/question.wxml-->
 <view class="questionList" wx:for="{{question}}" wx:key="index">
-
     <view class="top">
-        <image class="avatar" src="{{item.avatarUrl}}"></image>
-        <view class="nickName">{{item.nickName}}</view>
-        <view class="time">{{item.time}}</view>
+        <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="nickName">{{userInfo.nickName}}</view>
+        <view class="time">{{questionTime[index]}}</view>
+        <view class="delete" bindtap="deleteToast" data-index="{{index}}">删除</view>
     </view>
-    <scroll-view class="question" scroll-x="true" scroll-y="true" style="height: 120px;">
-        <text decode="{{true}}">&nbsp;&nbsp;{{item.question}}</text>
+    <navigator url="../../forum/questPut/questPut?mode=2&myQuestionId={{question[index].questionId}}&myQuestCodeId={{codeId[index]}}&myQuestDetail={{question[index].detail}}" class="questionBox">{{item.detail}}</navigator>
+    <scroll-view class="question" scroll-x="true" scroll-y="true" wx:if="{{item.codeId != 0}}">
+        <htmltowxml text="{{VueCode[index]}}" type="md" bindWxmlTagATap="wxmlTagATap" highlightStyle="tomorrow">
+        </htmltowxml>
     </scroll-view>
 </view>
+
+<view class="end">
+    <text space="nbsp">——  THE  END  ——</text>
+</view>
+
+<view wx:if="{{isShow}}"></view>
