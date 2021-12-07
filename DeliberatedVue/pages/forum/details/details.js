@@ -4,7 +4,9 @@ import {
 	articleReplies,
 	articleLikes,
 	articleReplyLikes,
-	delArticleReply
+	delArticleReply,
+	addScore,
+	getScore
 } from "../../../api/forum"
 
 var util = require("../../../utils/util");
@@ -21,6 +23,8 @@ Page({
 		currentComment: "",
 		userInfo: [], //存储userinfo的内容
 		commenterInfo: [], //存储评论者的用户信息
+		myScore: 0,
+		authorOpenId:"" // 作者的openId
 	},
 
 	/**
@@ -34,6 +38,7 @@ Page({
 		console.log(wx.getStorageSync('openId'))
 		this.getArticle();
 		this.articleReplies();
+		this.getScore();
 	},
 
 	// 获取帖子具体数据
@@ -45,8 +50,10 @@ Page({
 		getArticle("POST", data, true).then(res => {
 			that.setData({
 				article: res.data.data.detail,
-				userInfo: JSON.parse(res.data.user.userInfo)
+				userInfo: JSON.parse(res.data.user.userInfo),
+				authorOpenId: res.data.user.openId
 			})
+			console.log(res.data)
 			console.log("userInfo ", this.data.userInfo)
 		}).catch(err => {
 			console.log(err)
@@ -193,4 +200,55 @@ Page({
 		})
 		this.articleReplies();
 	},
+
+	// 获取用户积分
+    getScore() {
+        let data = {
+            "openId": wx.getStorageSync('openId')
+        }
+        getScore("POST", data, true).then(res => {
+            this.setData({
+                myScore: res.score
+			})
+			console.log("myScore",this.data.myScore)
+        }).catch(err => {
+            console.log(err);
+        })
+    },
+
+    // 增减用户积分
+    addScore(openId,reward, type) {
+        let data = {
+            "openId": openId,
+            "reward": reward,
+            "type": type
+        }
+        addScore("POST", data, true).then(res => {
+			console.log('addScore 结果', res);
+			this.getScore();
+        }).catch(err => {
+            console.log(err);
+        })
+	},
+
+	// 打赏
+	payReward(){
+		var that = this
+		wx.showModal({
+		  title:'可用积分数：'+that.data.myScore,
+		  editable:true,
+		  placeholderText: '请输入要打赏的积分数',
+		  success(res){
+			  if(res.confirm && res.content <= that.data.myScore){
+				that.addScore(wx.getStorageSync('openId'),res.content,2)
+				that.addScore(that.data.authorOpenId,res.content,1)
+			  }else if(res.confirm && res.content > that.data.myScore){
+				  wx.showToast({
+					title: '积分余额不足',
+					icon:'none'
+				  })
+			  }
+		  }
+		})
+	}
 })

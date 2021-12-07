@@ -31,11 +31,11 @@
     <view class="postBox" bindtap="gotoDetails" data-index="{{index}}">
         <view class="postTitle">{{item.data.title}}</view>
         <view class="taberBox">
-            <view class="outTaber">
-                <image src="{{likesRecord[index] == 1?'../../icon/selectedLike.png':'../../icon/like.png'}}" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;"></image>
+            <view class="outTaber" catchtap="likeArticle" hover-stop-propagation="true" data-index="{{index}}">
+                <image src="{{likesRecord[index] == 1?'../../icon/selectedLike.png':'../../icon/like.png'}}" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;" ></image>
                 <text style="font-size: small;">点赞</text>
             </view>
-            <view class="outTaber">
+            <view class="outTaber" catchtap="payReward" hover-stop-propagation="true" data-index="{{index}}">
                 <image src="../../icon/reward.png" mode="heightFix" style="height: 36rpx; margin-right: 5rpx;"></image>
                 <text style="font-size: small;">打赏</text>
             </view>
