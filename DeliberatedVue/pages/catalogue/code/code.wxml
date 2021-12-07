@@ -3,7 +3,8 @@
   <textarea type = 'text' class="comment" placeholder = "请输入注释" auto - focus></textarea>  
 </modal>  -->
 <!-- <button bindtap='return' class='return' size="mini">目录</button> -->
-<button bindtap='lightUp' class='lightUp' size="mini">{{lightUpMsg}}</button>
+
+<button bindtap='lightUp' class='lightUp' size="mini" disabled="{{isAble}}">{{lightUpMsg}}</button>
 
 <view  wx:for="{{VueCode}}">
     <view wx:if="{{item.isChoosen==true}}" class="code">
@@ -30,4 +31,5 @@
       <htmltowxml text="{{item.code}}" type="md" bindWxmlTagATap="wxmlTagATap" highlightStyle="tomorrow" bindtap="chooseCode" data-index="{{index}}">
       </htmltowxml>
     </view>
+
 </view>

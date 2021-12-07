@@ -39,7 +39,7 @@ Page({
     comment: '',
 
     lightUpMsg: '',
-
+    isAble: false
   },
   return () {
     wx.navigateBack({
@@ -151,16 +151,25 @@ Page({
     data9 = tree[9]
     data10 = tree[10]
     var msg
+    var able
+
+    if (wx.getStorageSync(name) > 0) {
+      isLightUp = 1
+    }
+
     if (isLightUp == 0) {
       msg = '点亮技能'
+      able = false
     } else if (isLightUp == 1) {
       msg = '技能已点亮'
+      able = true
     }
 
     this.codeId = app.globalData.codeId
     this.setData({
       codeId: this.codeId,
       lightUpMsg: msg,
+      isAble: able,
     })
     let data = {
       "path": this.codeId
@@ -220,6 +229,10 @@ Page({
       wx.showToast({
         title: '技能点亮成功',
       })
+
+      this.setData({
+        isAble : true
+      })
     } else if (isLightUp == 1) {
       wx.showToast({
         title: '该技能已点亮',
@@ -228,13 +241,15 @@ Page({
   },
 
   lightUpNode(node) {
-    console.log(node)
-    if (node.name == father) {
-      node.lightUpNode += 1
-      // if (condition) {
-        
-      // }
+    wx.setStorageSync(name, 1)
+    var num = wx.getStorageSync(father)
+    if (num > 0) {
+      num += 1
+    } else {
+      num = 2
     }
+    wx.setStorageSync(father, num)
+  },
 
-  }
+  
 });
