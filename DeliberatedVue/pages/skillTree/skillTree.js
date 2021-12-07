@@ -22,7 +22,6 @@ let data0 = {
     father: "Vue",
     itemStyle: {
       color: normalColor
-
     }
   }, {
     name: "class与style绑定",
@@ -762,7 +761,7 @@ let data10 = {
     },
   }]
 }
-let skillTree = [data0, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
+var skillTree = [data0, data1, data2, data3, data4, data5, data6, data7, data8, data9, data10]
 
 Page({
 
@@ -782,26 +781,9 @@ Page({
     hasUserInfo: false
   },
   onLoad() {
-    // console.log(util.formatTime(new Date()))
-    // wx.showLoading({
-    //   title: 'title',
-    // })
-    // wx.request({
-    //   url: 'https://geniusmarket.top/test',
-    //   method: "POST",
-    //   success: res => {
-    //     console.log(res)
-    //     wx.hideLoading({
-    //       success: (res) => {},
-    //     })
-    //   },
-    //   fail: err => {
-    //     console.log(err)
-    //     wx.hideLoading({
-    //       success: (res) => {},
-    //     })
-    //   }
-    // })
+
+    this.lightUp()
+
     if (wx.getStorageSync('userInfo').length == 0) {
       this.setData({
         hasUserInfo: false
@@ -820,16 +802,39 @@ Page({
 
     if (wx.getStorageSync('skillTree').length == 0) {
       wx.setStorageSync('skillTree', skillTree)
-      console.log("set")
-      console.log(skillTree)
+      
     } else {
-      console.log("get")
-      console.log(wx.getStorageSync('skillTree'))
+      skillTree = wx.getStorageSync('skillTree')
+      console.log(skillTree)
     }
 
   },
   onReady() {},
-  onshow() {},
+  onshow() {
+    this.lightUp()
+  },
+  lightUp() {
+    var num = 0
+    for (let i = 1; i < skillTree.length; i++) {
+      var data = skillTree[i]
+      if (wx.getStorageSync(data.name) > data.childNum && data.isLightUp == 0) {
+        data.itemStyle.color = lightUpColor
+        data.isLightUp = 1
+        num ++
+        for (let j = 0; j < skillTree[0].childNum; j++) {
+          if(skillTree[0].children[j].name == data.name){
+            console.log(skillTree[0].children[j].name)
+            skillTree[0].children[j].itemStyle.color = lightUpColor
+          }
+        }
+      }
+      skillTree[i] = data
+    }
+    if (num >= skillTree.lenth) {
+      skillTree[0].itemStyle.color = lightUpColor
+    }
+    wx.setStorageSync('skillTree', skillTree)
+  },
   login() {
     let data = {
       "code": this.data.code,
@@ -888,6 +893,7 @@ function initChart(canvas, width, height, dpr) {
   canvas.setChart(chart);
   var tree = wx.getStorageSync('skillTree');
   var data0 = tree[0];
+  console.log(data0)
   var option = {
     series: [{
       type: 'tree',
