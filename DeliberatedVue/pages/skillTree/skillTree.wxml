@@ -1,5 +1,7 @@
 <!--pages/skillTree/skillTree.wxml-->
-
+<view class="bg">
+    <image class="img" src="../../images/background.jpeg"></image>
+</view>
 <view class="tc" wx:if="{{!hasUserInfo}}">
     <view class="inner"wx:if="{{canIUseGetUserProfile}}" >
         <view class='header'>
