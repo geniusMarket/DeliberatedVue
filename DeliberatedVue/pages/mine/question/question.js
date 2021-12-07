@@ -25,7 +25,7 @@ Page({
         userInfo: [],
         codeId: [],
         isShow: true,
-        VueCode:[]
+        VueCode: []
     },
 
     /**
@@ -49,7 +49,7 @@ Page({
                 question: res.data,
                 isShow: false
             })
-            for(var i = 0; i < this.data.question.length; i++){
+            for (var i = 0; i < this.data.question.length; i++) {
                 this.data.codeId[i] = this.data.question[i].codeId
                 this.data.questionTime[i] = this.timeTest(this.data.question[i].createTime)
             };
@@ -58,9 +58,9 @@ Page({
                 questionTime: this.data.questionTime
             })
             console.log("question", this.data.question)
-            console.log("codeId",this.data.codeId)
-            for(var i = 0; i < this.data.codeId.length; i++){
-                this.locationCode(i);
+            console.log("codeId", this.data.codeId)
+            for (var i = 0; i < this.data.codeId.length; i++) {
+                if(this.data.codeId[i] != 0) this.locationCode(i);
             }
         }).catch(err => {
             console.log(err)
@@ -94,7 +94,7 @@ Page({
         })
     },
 
-    readCode: function (codePath,index) { //获取源码
+    readCode: function (codePath, index) { //获取源码
         let data = {
             "path": codePath
         }
@@ -111,13 +111,14 @@ Page({
     },
 
     //   通过codeId获取源码路径
-    locationCode: function (index) { 
+    locationCode: function (index) {
         let data = {
             "codeId": this.data.codeId[index]
         }
+        console.log("codeId data",data)
         locationCode("POST", data, true).then(res => {
-            this.readCode(res.data.filePath,index)
-            console.log("源码路径", res.data.filePath)
+            this.readCode(res.data.filePath, index)
+            console.log("源码路径", res)
         }).catch(err => {
             console.log("获取源码路径", err)
         })

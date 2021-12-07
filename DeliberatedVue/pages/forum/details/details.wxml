@@ -23,8 +23,8 @@
             <image src="{{likesArticle == 1?'../../../icon/selectedLike.png':'../../../icon/like.png'}}" mode="heightFix"></image>
             <view style="font-size: medium;">点赞</view>
         </view>
-        <view class="outTaber">
-            <image src="../../../icon/reward.png" mode="heightFix"></image>
+        <view class="outTaber" bindtap="payReward">
+            <image src="../../../icon/reward.png" mode="heightFix" ></image>
             <view style="font-size: medium;">打赏</view>
         </view>
         <view class="outTaber">
