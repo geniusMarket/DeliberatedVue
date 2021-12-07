@@ -95,9 +95,7 @@ Page({
   },
 
   onShow: function () {
-    console.log("11111")
     tree = wx.getStorageSync('skillTree');
-
     data1 = this.isLightUp(tree[1])
     data2 = this.isLightUp(tree[2])
     data3 = this.isLightUp(tree[3])
@@ -119,15 +117,30 @@ Page({
     })
   },
   isLightUp(data) {
+    console.log(data)
+    /**
+      1. 子节点点亮 key++ isLightUp = 1 -> 检查父节点 key 数量 -> 检查 父节点 childNum 
+      2. key 数量 == childNum -> 父节点亮 isLightUp = 1
 
-    if (wx.getStorageSync(data.name) > data.childNum && data.isLightUp == 0) {
+    */
+    if(wx.getStorageSync(data.name) > data.childNum && data.childNum == 0 && data.isLightUp == 0) {
       data.itemStyle.color = lightUpColor
       data.isLightUp = 1
       var num = wx.getStorageSync(data.father)
       if (num > 0) {
         num += 1
       } else {
-        num = 2
+        num = 1
+      }
+    }
+    if (wx.getStorageSync(data.name) == data.childNum && data.childNum != 0 && data.isLightUp == 0) {
+      data.itemStyle.color = lightUpColor
+      data.isLightUp = 1
+      var num = wx.getStorageSync(data.father)
+      if (num > 0) {
+        num += 1
+      } else {
+        num = 1
       }
       wx.setStorageSync(data.father, num)
     }

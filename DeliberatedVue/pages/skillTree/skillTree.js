@@ -120,7 +120,7 @@ let data1 = {
       isLightUp: 0,
       childNum: 2,
       lightUpNum: 0,
-      father: "Vue",
+      father: "组件",
       itemStyle: {
         color: normalColor
       },
@@ -817,7 +817,7 @@ Page({
     var num = 0
     for (let i = 1; i < skillTree.length; i++) {
       var data = skillTree[i]
-      if (wx.getStorageSync(data.name) > data.childNum && data.isLightUp == 0) {
+      if (wx.getStorageSync(data.name) == data.childNum && data.isLightUp == 0) {
         data.itemStyle.color = lightUpColor
         data.isLightUp = 1
         num ++
