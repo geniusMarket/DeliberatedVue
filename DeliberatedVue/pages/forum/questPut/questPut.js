@@ -53,7 +53,7 @@ Page({
     onLoad: function (options) {
         this.setData({
             openId: wx.getStorageSync('openId'),
-            userInfo: eval('(' + wx.getStorageSync('userInfo') + ')'),
+            userInfo: JSON.parse(wx.getStorageSync('userInfo')),
             mode: options.mode
         })
         console.log("mode:", this.data.mode)
@@ -181,7 +181,7 @@ Page({
             for (var i = 0; i < this.data.questNum; i++) {
                 this.selectAnswer(this.data.questions[i].data.questionId, i);
                 this.data.questTime[i] = this.timeTest(this.data.questions[i].data.createTime);
-                this.data.askerInfo[i] = eval('(' + this.data.questions[i].user.userInfo + ')')
+                this.data.askerInfo[i] = JSON.parse(this.data.questions[i].user.userInfo)
             }
             this.setData({
                 questTime: this.data.questTime,
@@ -252,7 +252,7 @@ Page({
             })
             this.data.answerInfo[index] = new Array()
             for (var i = 0; i < res.data.length; i++) {
-                this.data.answerInfo[index][i] = eval("(" + res.data[i].user.userInfo + ")")
+                this.data.answerInfo[index][i] = JSON.parse(res.data[i].user.userInfo)
             }
             this.setData({
                 answerInfo: this.data.answerInfo,
@@ -272,7 +272,7 @@ Page({
                 myQuestAnswer: res.data
             })
             for(var i = 0; i < res.data.length; i++){
-                this.data.myQuestAnswerInfo[i] = eval('(' + res.data[i].user.userInfo + ')')
+                this.data.myQuestAnswerInfo[i] = JSON.parse(res.data[i].user.userInfo)
             }
             this.setData({
                 myQuestAnswerInfo: this.data.myQuestAnswerInfo

@@ -17,8 +17,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userInfo: eval('(' + wx.getStorageSync('userInfo') + ')'),
+      userInfo: JSON.parse(wx.getStorageSync('userInfo')),
     })
+    console.log(this.data.userInfo)
   },
 
   onShow: function(){
@@ -37,10 +38,17 @@ Page({
         postList: res.data,
         likesRecord: res.likesRecord
       })
-      console.log(this.data.postList)
-      console.log(this.data.likesRecord)
+      console.log("postList", this.data.postList)
+      console.log("LikesRecord", this.data.likesRecord)
     }).catch(err => {
       console.log(err)
+    })
+  },
+
+  gotoDetails(e){
+    var index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url: 'details/details?articleId='+this.data.postList[index].data.articleId+'&likesArticle='+this.data.likesRecord[index]+'',
     })
   }
 })
