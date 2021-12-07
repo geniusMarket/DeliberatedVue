@@ -5,7 +5,7 @@
     </htmltowxml>
 </scroll-view>
 <view class="comment">
-    <image class="userImg" src="/images/v2_qbsucr.png" mode="scaleToFill" />
+    <image class="userImg" src="https://geniusmarket.top/getPicture/images/v2_qbsucr.png" mode="scaleToFill" />
     <view>
         <form bindsubmit="formSubmit" bindreset="formReset">
             <view class='all'>
