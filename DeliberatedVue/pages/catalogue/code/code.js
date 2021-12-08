@@ -37,9 +37,9 @@ Page({
     hiddenput: true,
     display: 'none',
     comment: '',
-
     lightUpMsg: '',
-    isAble: false
+    isAble: false,
+    isShow: false
   },
   return () {
     wx.navigateBack({
@@ -138,7 +138,13 @@ Page({
     father = String(options.father)
     isLightUp = Number(options.isLightUp)
     section = Number(options.section)
-
+    if(name != 'undefined') {
+      this.setData({
+        isShow: true
+      })
+    }
+    console.log(name)
+    console.log(this.data.isShow)
     tree = wx.getStorageSync('skillTree');
     data1 = tree[1]
     data2 = tree[2]

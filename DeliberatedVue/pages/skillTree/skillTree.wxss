@@ -1,6 +1,6 @@
 /* pages/skillTree/skillTree.wxss */
 page{
-  background-color: #153641;
+  background-color: #0a0b2a;
   height: 100%;
 }
 

@@ -1,9 +1,7 @@
 {
     "pages": [
-        
-        
-        "pages/skillTree/skillTree",
         "pages/startUp/startUp",
+        "pages/skillTree/skillTree",
         "pages/skillTree/childrenTree/childrenTree",
         "pages/catalogue/comment/comment",
         "pages/catalogue/question/question",
@@ -24,7 +22,6 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-
         "navigationBarTextStyle": "black"
     },
     "tabBar": {

@@ -4,7 +4,7 @@
         <image src="/icon/searchicon.png" mode="heightFix"></image>
     </view>
     <view class="searchButtonBox" bindtap="toSearch">
-        <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" />
+        <input class="searchInput" placeholder="请输入查找内容" value="{{searchValue}}" bindinput="searchValueInput" bindtap="search"/>
         <!-- <text style="color: #929292;">请输入查找内容</text> -->
     </view>
 </view>

@@ -5,12 +5,12 @@
     </view>
 </view>
 
-<view class="locateBox">
+<!-- <view class="locateBox">
     <view class="outLocate">
         <image src="../../../icon/locate.png" mode="heightFix"></image>
         <text>定位该问题源码位置</text>
     </view>
-</view>
+</view> -->
 
 <view class="textBodyBox">
     <text user-select="true">{{article}}</text>
@@ -27,10 +27,10 @@
             <image src="../../../icon/reward.png" mode="heightFix" ></image>
             <view style="font-size: medium;">打赏</view>
         </view>
-        <view class="outTaber">
+        <!-- <view class="outTaber">
             <image src="../../../icon/comment.png" mode="heightFix"></image>
             <view style="font-size: medium;">评论</view>
-        </view>
+        </view> -->
     </view>
 </view>
 

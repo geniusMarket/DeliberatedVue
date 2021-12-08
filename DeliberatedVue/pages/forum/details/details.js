@@ -242,11 +242,6 @@ Page({
 			  if(res.confirm && res.content <= that.data.myScore){
 				that.addScore(wx.getStorageSync('openId'),res.content,2)
 				that.addScore(that.data.authorOpenId,res.content,1)
-				setTimeout(() => {
-					wx.showToast({
-					  title: '成功打赏:'+ res.content +'积分',
-					})
-				}, 200);
 			  }else if(res.confirm && res.content > that.data.myScore){
 				  wx.showToast({
 					title: '积分余额不足',
