@@ -53,6 +53,11 @@ Page({
       url: '../mine/question/question',
     })
   },
+  toArticle() {
+    wx.navigateTo({
+      url: '../mine/article/article',
+    })
+  },
   toHistory() {
     wx.navigateTo({
       url: '../mine/history/history',

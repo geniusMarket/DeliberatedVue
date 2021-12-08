@@ -5,12 +5,12 @@
     </view>
 </view>
 
-<view class="locateBox">
+<!-- <view class="locateBox">
     <view class="outLocate">
         <image src="../../../icon/locate.png" mode="heightFix"></image>
         <text>定位该问题源码位置</text>
     </view>
-</view>
+</view> -->
 
 <view class="textBodyBox">
     <text user-select="true">{{article}}</text>
