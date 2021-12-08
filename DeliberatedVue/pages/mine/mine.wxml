@@ -26,6 +26,10 @@
         <image class="myQuestionImg" src="../../icon/myQuestion.png"></image>
         <view class="myQuestionText">我的提问</view>
     </view>
+    <view class="myArticle" bindtap="toArticle">
+        <image class="myArticleImg" src="../../icon/myArticle.png"></image>
+        <view class="myArticleText">我的文章</view>
+    </view>
     <view class="history" bindtap="toHistory">
         <image class="historyImg" src="../../icon/history.png"></image>
         <view class="historyText">浏览历史</view>

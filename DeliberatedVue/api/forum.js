@@ -82,3 +82,6 @@ export function getQuestionIsAccept(method, data, loading) {
 export function acceptAnswer(method, data, loading) {
     return request("acceptAnswer", method, data,loading)
 }
+export function delArticle(method, data, loading) {
+    return request("delArticle", method, data, loading)
+}
