@@ -2,6 +2,7 @@
   "usingComponents": {
     "ec-canvas": "../../components/ec-canvas/ec-canvas"
   },
-  "navigationBarTitleText": "技能树"
-  
+  "navigationBarTitleText": "技能树",
+  "navigationBarBackgroundColor": "#0a0b2a",
+  "navigationBarTextStyle": "white"
 }

@@ -1,11 +1,13 @@
-// pages/mine/question/question.js
+
 import {
-    getQuestion
+    getQuestion,
+    getArticle
 } from "../../../api/mine";
 
 import {
     delQuestion,
-    locationCode
+    locationCode,
+    delArticle
 } from "../../../api/forum";
 
 import {
@@ -44,13 +46,14 @@ Page({
             "openId": wx.getStorageSync('openId')
         }
         console.log(data)
-        getQuestion("POST", data, true).then(res => {
+        getArticle("POST", data, true).then(res => {
+            console.log(res)
             this.setData({
                 question: res.data,
                 isShow: false
             })
             for (var i = 0; i < this.data.question.length; i++) {
-                this.data.codeId[i] = this.data.question[i].codeId
+                this.data.codeId[i] = this.data.question[i].articleId
                 this.data.questionTime[i] = this.timeTest(this.data.question[i].createTime)
             };
             this.setData({
@@ -73,9 +76,9 @@ Page({
     // 删除问题
     delQuestion(index) {
         let data = {
-            "questionId": this.data.question[index].questionId
+            "articleId": this.data.question[index].articleId
         }
-        delQuestion("POST", data, true).then(res => {
+        delArticle("POST", data, true).then(res => {
             console.log(res)
         }).catch(err => {
             console.log(err)

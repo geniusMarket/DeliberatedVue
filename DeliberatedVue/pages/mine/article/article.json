@@ -2,5 +2,5 @@
   "usingComponents": {
     "htmltowxml": "/components/html2wxml-component/html2wxml"
   },
-  "navigationBarTitleText": "我的提问"
+  "navigationBarTitleText": "我的文章"
 }

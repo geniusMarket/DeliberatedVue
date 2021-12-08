@@ -4,10 +4,13 @@
     </htmltowxml>
 </scroll-view>
 
+<!-- 当从源码阅读页面进入，显示该代码对应的所有提问 -->
+<block wx:if="{{mode == 1}}">
+
 <view class="questPutBox">
-    <image class="headPic" mode="widthFix" src="../../../images/v2_qbsucr.png"></image>
-    <view class="questBox">
-        <textarea class="questArea" placeholder="请输入您的问题" maxlength="-1" bindinput="questGet"></textarea>
+    <image class="headPic" mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+    <view class="questBox {{answerState?'hiddenArea':''}}">
+        <textarea class="questArea" placeholder="请输入您的问题" maxlength="-1" bindinput="questGet" value="{{questDetail}}"></textarea>
     </view>
 </view>
 
@@ -25,24 +28,24 @@
 </view>
 
 <text style="margin-left:20rpx; font-size: larger;">{{questNum}}条提问</text>
-<block>
+<view class="questionsContainer">
     <view class="questionsBox" wx:for="{{questions}}" wx:key="index">
         <view style="display: flex;flex-direction: row;">
-            <image class="headPic" src="../../../images/v2_r1z3ud.jpg" mode="widthFix"></image>
-            <view class="commentContent">{{item.data.asker}} :{{item.data.detail}}</view>
+            <image class="headPic" src="{{askerInfo[index].avatarUrl}}" mode="widthFix"></image>
+            <view class="commentContent">{{askerInfo[index].nickName}} :{{item.data.detail}}</view>
         </view>
         <view class="replyBox">
-            <text>{{}}分钟前</text>
+            <text style="margin-right: 10rpx;">{{questTime[index]}}</text>
             <image src="../../../icon/points.png" mode="heightFix" style="height: 54rpx;"></image>
             <text style="margin-right: 10rpx;">{{item.data.reward}}</text>
             <view style="color: #80d0ac;" bindtap="showAnswerQuest" data-index="{{index}}">回复</view>
         </view>
-        <view class="answersContainer" wx:for="{{answers[index]}}">
-            <text style="color: grey;">{{item.data.answerer}}：</text>
-            <text>{{item.data.detail}}</text>
+        <view class="answersContainer" wx:for="{{answers[index]}}" wx:for-index="childIndex">
+            <text style="color: grey; font-size: 28rpx;">{{answerInfo[index][childIndex].nickName}}：</text>
+            <text style="font-size: 26rpx;">{{item.data.detail}}</text>
         </view>
     </view>
-</block>
+</view>
 
 <view wx:if="{{answerState}}" class="answerBox">
     <view class="answerBox-bg"></view>
@@ -55,6 +58,31 @@
         </view>
     </view>
 </view>
+
+</block>
+<!-- 当从源码阅读页面进入，显示该代码对应的所有提问 -->
+
+
+<!-- 当从“我的提问”入口进入该页面时，显示该提问对应的代码和对应的回答 -->
+<block wx:if="{{mode == 2}}">
+
+<view class="myQuestionBox">
+    <view class="myQuestionTitle">问题</view>
+    <view class="myQuestionDetail">{{myQuestDetail}}</view>
+</view>
+<view class="myQuestAnswerBox">
+    <view style="display: flex;flex-direction: row;">
+        <view class="myQuestionTitle">回答</view>
+        <view class="myQuestionTip">长按采纳，每个问题仅能采纳一个回答</view>
+    </view>
+    <view class="myQuestAnswers" wx:for="{{myQuestAnswer}}" bindlongpress="myQuestAnswerAdopt" wx:key="index" data-index="{{index}}">
+        <view style="color: rgb(70, 70, 70);">{{myQuestAnswerInfo[index].nickName}}: </view>
+        <view style="margin-left: 8rpx;">{{item.data.detail}}</view>
+    </view>
+</view>
+</block>
+<!-- 当从“我的提问”入口进入该页面时，显示该提问对应的代码和对应的回答 -->
+
 
 <view class="end">
     <text space="nbsp">——  THE  END  ——</text>

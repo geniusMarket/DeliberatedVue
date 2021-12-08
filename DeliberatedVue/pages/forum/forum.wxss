@@ -41,18 +41,11 @@
     height: 75rpx;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.userBox .userInform .headpicBox{
-    height: 60rpx; 
-    width: 80rpx;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.userBox .userInform .headpicBox image{
-    height: 100%;
+.headPic{
+    margin: 0 10rpx;
+    height: 60rpx;
+    border-radius: 50%;
 }
 .userBox .myQuestion{
     width: 200rpx;
@@ -115,19 +108,6 @@
     margin-top: 15rpx;
     padding-left: 40rpx;
     display: flex;
-    flex-direction: row;
-}
-.postBoxOuter .postBox .postTitle .pointBox{
-    height: 45rpx;
-    width: 100rpx;
-    margin-bottom: 5rpx;
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-}
-.postBoxOuter .postBox .postTitle .pointBox image{
-    height: 100%;
-    margin-right: 5rpx;
 }
 .postBoxOuter .postBox .taberBox{
     height: 40rpx;
@@ -143,18 +123,7 @@
     display: flex;
     flex-direction: row;
 }
-.postBoxOuter .postBox .taberBox .outTaber .taberIconBox{
-    height: 100%;
-    width: 60rpx;
-    display: flex;
-    justify-content: center;
-}
-.postBoxOuter .postBox .taberBox .outTaber .taberIconBox image{
-    height: 100%;
-}
-.postBoxOuter .postBox .taberBox .outTaber .taberTextBox{
-    font-size: small;
-}
+
 
 .newPostBox{
     height: 145rpx;

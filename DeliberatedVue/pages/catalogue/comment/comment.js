@@ -1,5 +1,6 @@
 // pages/catalogue/comment/comment.js
 var app = getApp()
+var util = require("../../../utils/util");
 import {
   addAnnotation
 } from "../../../api/test";
@@ -39,7 +40,6 @@ Page({
     replyId: '', //评论Id
     reply: [], //全部评论
     username: [],
-    likes:1,
   },
 
   formSubmit: function (e) {
@@ -47,7 +47,8 @@ Page({
     var that = this;
     if (e.detail.value.event == '') {
       wx.showToast({
-        title: '注释为空',
+        title: '注释不能为空！',
+        icon:'error'
       })
     } else {
       console.log('发表注释：', e.detail.value.event)
@@ -62,11 +63,31 @@ Page({
     }
   },
 
+  timeTest(dateStr) {  //获取时间
+    var timeNow = util.formatTime(new Date());
+    timeNow = timeNow.replace(/-/g, '/');
+    timeNow = Date.parse(timeNow);
+    // console.log(timeNow);
+    var diffValue = (timeNow - dateStr)/1000;
+    // console.log(diffValue);
+    var diffDays = parseInt(diffValue / 86400);
+    var diffHours = parseInt(diffValue / 3600);
+    var diffMinutes = parseInt(diffValue / 60);
+    var diffSeconds = parseInt(diffValue);
+    if(diffDays > 365) return parseInt(diffDays / 365) + "年前";
+    else if(diffDays > 30) return parseInt(diffDays / 30) + "月前";
+    else if(diffDays > 10) return "一个月内";
+    else if(diffDays > 0) return diffDays + "天前";
+    else if(diffHours > 0) return diffHours + "小时前";
+    else if(diffMinutes > 0) return diffMinutes + "分钟前";
+    else if(diffSeconds<=0) return '刚刚';
+    else return diffSeconds + "秒前";
+},
 
   addAnnotation: function () { //添加注释
     //post到服务器
     let data = {
-      "userId":  app.globalData.userName,
+      "userId":  wx.getStorageSync('openId'),
       "filePath": this.data.codeId,
       "moduleName": this.data.codeId,
       "detail": this.data.comment
@@ -111,23 +132,19 @@ Page({
     })
   },
   //点赞注释
-  annotationLikes: function (index) {
+  annotationLikes: function (index,type) {
     //post到服务器
-    var annotation = this.data.annotations[index]
     let data = {
-      "annotationId": annotation.data.annotationId
+      "annotationId": index,
+      "openId": wx.getStorageSync('openId'),
+      "type": type
     }
     annotationLikes("POST", data, true).then(res => {
-      // console.log("点赞注释部分返回的like_num：", res.data.likes)
-      // console.log('点赞注释部分里的annotation:', annotation)
-      // console.log('点赞注释里的注释列表',this.data.username)
-      this.setData({
-        likes : res.data.likes
-      })
+        console.log("zanzan",res)
     }).catch(err => {
       console.log(err)
     })
-    console.log('点赞注释部分的this.data.likes',this.data.likes)
+    // this.selectAnnotation()
   },
   /**
    * 排序
@@ -176,7 +193,6 @@ Page({
     this.setData({
       username: value,
     })
-    // console.log(value[index].is_show)
 
   },
   /**
@@ -185,32 +201,27 @@ Page({
   is_like: function (e) {
     //获取当前点击下标
     var index = e.currentTarget.dataset.index;
-    // console.log('点赞函数里的index', index)
     //data中获取列表
     var value = this.data.username;
-    // console.log('index对应的annotationid',this.data.username[index].annotationId)
-    // console.log('点赞函数里的注释列表',value)
     for (let i in value) {
       //遍历列表数据
       if (i == index) {
-        if (value[i].is_like) {
-          value[i].is_like = false,
-          value[i].like_num = parseInt(value[i].like_num) - 1,
-          value[i].like_src = "/icon/zan.png"
-        } else if (!value[i].is_like) {
-          this.annotationLikes(index)
-          value[i].is_like = true,
-          console.log('点赞函数里的like_num',this.data.likes)
-          value[i].like_num = this.data.likes
-          value[i].like_src = "/icon/selectedzan.png"
+        if (value[i].is_like==1) {  //取消点赞
+          this.annotationLikes(value[i].annotationId,0)
+          value[i].is_like=0 
+          value[i].like_num -= 1
+          value[i].like_src = "https://geniusmarket.top/getPicture/icon/zan.png"
+        } else if (value[i].is_like==0) {  //点赞
+          this.annotationLikes(value[i].annotationId,1)
+          value[i].is_like=1
+          value[i].like_num += 1
+          value[i].like_src = "https://geniusmarket.top/getPicture/icon/selectedzan.png"
         }
       }
     }
-    //重新赋值
     this.setData({
-      username: value,
+      username:value
     })
-    // console.log('修改后的username',this.data.username)
     wx.setStorageSync('annotation', this.data.username)
   },
   /**
@@ -228,16 +239,16 @@ Page({
         var annotationId = value[i].annotationId
         if (value[i].is_reply) {
           value[i].is_reply = false,
-            value[i].reply_src = "/icon/reply.png"
-        } else if (!value[i].is_like) {
+            value[i].reply_src = "https://geniusmarket.top/getPicture/icon/reply.png"
+        } else if (!value[i].is_reply) {
           // console.log(annotationId)
           this.selectAnnotationReply(annotationId)
           value[i].is_reply = true,
-            value[i].reply_src = "/icon/selectedreply.png"
+          value[i].reply_src = "https://geniusmarket.top/getPicture/icon/selectedreply.png"
         }
       } else {
-        value[i].is_reply = false,
-          value[i].reply_src = "/icon/reply.png"
+          value[i].is_reply = false,
+          value[i].reply_src = "https://geniusmarket.top/getPicture/icon/reply.png"
       }
     }
     // console.log(annotationId)
@@ -252,15 +263,20 @@ Page({
     // console.log(e)
     var that = this;
     console.log('发表评论：', e.detail.value.comment_details)
-    this.setData({
-      comment2: e.detail.value.comment_details
-    })
-    // console.log(this.data.comment2)
-    // console.log(this.data.annotationId)
-    this.addAnnotationReply()
-    that.setData({
-      form_info: '' //清空输入框内容
-    })
+    if(e.detail.value.comment_details==''){
+      wx.showToast({
+        title: '评论不能为空！',
+        icon:'error'
+      })
+    }else{
+      this.setData({
+        comment2: e.detail.value.comment_details
+      })
+      this.addAnnotationReply()
+      that.setData({
+        form_info: '' //清空输入框内容
+      })
+    }
   },
 
   readCode: function () { //获取源码
@@ -278,63 +294,52 @@ Page({
     })
   },
 
-  selectAnnotation: function () { //获取注释和回复
+  selectAnnotation: function () { //获取注释
     //post到服务器
     var annotations_new = []
     let data = {
       "moduleName": this.data.codeId,
-      "type": "notall"
+      "type": "notall",
+      "openId": wx.getStorageSync('openId')
     }
-    console.log(this.data.codeId)
     selectAnnotation("POST", data, true).then(res => {
-      console.log("获取注释部分返回：", res.data)
+      console.log("获取注释部分返回：", res)
       this.setData({
         annotations: res.data
       })
       for (var i = 0; i < this.data.annotations.length; i++) {
         var annotation = this.data.annotations[i]
-        var reply = []
         var fold = false //是否显示“展开”二字，默认不显示
-        let data = {
-          "annotationId": annotation.data.annotationId
-        }
-        // console.log("user",annotation.data)
-        selectAnnotationReply("POST", data, true).then(res => {
-          // console.log("获取回复部分：", res.data)
-          reply.push(res.data)
-          this.setData({
-            reply: reply
-          })
-          wx.setStorageSync('reply', this.data.reply)
-          // console.log(this.data.reply)
-        }).catch(err => {
-          console.log("获取回复部分：", err)
-        })
         if (annotation.data.detail.length > 38) {
           fold = true
         }
+        var userInfo = JSON.parse(annotation.user.userInfo)
+        if(res.likeRecord[i]==1) {
+          var like_src="https://geniusmarket.top/getPicture/icon/selectedzan.png"
+        }else if(res.likeRecord[i]==0) {
+          var like_src="https://geniusmarket.top/getPicture/icon/zan.png"
+         }
         var obj = {
-          name: annotation.data.userId,
-          userImg:wx.getStorageSync(annotation.data.userId),
+          name: userInfo.nickName,
+          userImg:userInfo.avatarUrl,
           comment_text: annotation.data.detail,
           annotationId: annotation.data.annotationId,
           fold: fold,
           is_show: "展开",
-          is_like: false,
+          is_like: res.likeRecord[i],
           like_num: annotation.data.likes,
-          pub_time: "3分钟前",
+          pub_time: this.timeTest(annotation.data.createTime),
           is_reply: false,
           reply: wx.getStorageSync('reply')[i],
           ellipsis: true, // 文字是否收起，默认收起
-          like_src:"/icon/zan.png",
-          reply_src: "/icon/reply.png",
+          like_src:like_src,
+          reply_src: "https://geniusmarket.top/getPicture/icon/reply.png",
         }
         annotations_new.push(obj);
       }
       this.setData({
         username: annotations_new,
       })
-      // console.log(this.data.username)
     }).catch(err => {
       console.log(err)
     })
@@ -344,7 +349,7 @@ Page({
   addAnnotationReply: function () {
     // console.log(this.data.annotationId)
     let data = {
-      "userId":  app.globalData.userName,
+      "userId": wx.getStorageSync('openId'),
       "detail": this.data.comment2,
       "annotationId": this.data.annotationId
     }
@@ -359,15 +364,17 @@ Page({
   //获取回复
   selectAnnotationReply(annotationId) {
     let data = {
-      "annotationId": annotationId
+      "annotationId": annotationId,
+      "openId": wx.getStorageSync('openId')
     }
     var annotationReply = []
     selectAnnotationReply("POST", data, true).then(res => {
       console.log("获取回复部分：", res)
       for (var i = 0; i < res.data.length; i++) {
         var reply = res.data[i]
-        var userId = reply.data.userId
-        var userImage = wx.getStorageSync(userId)
+        var userInfo = JSON.parse(reply.user.userInfo)
+        var userId = userInfo.nickName
+        var userImage = userInfo.avatarUrl
         var detail = reply.data.detail
         var replyId = reply.data.replyId
         var obj = {
@@ -427,24 +434,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log('缓存',wx.getStorageSync('annotation'))
     var userInfo = JSON.parse(wx.getStorageSync('userInfo'))
     app.globalData.userName = userInfo.nickName
     app.globalData.userImage = userInfo.avatarUrl
-    console.log(userInfo)
-    
-    //点赞数从大到小排序注释
-    this.setData({
-      username: this.data.username.sort(this.compare("like_num")).reverse(),
-    })
+  
     var codeId = app.globalData.codeId
     this.setData({
       codeId: codeId,
-      reply: []
+      reply: [],
+      VueCode:app.globalData.code
     })
-    // console.log("源码路径：",this.data.codeId)
-    this.readCode() //获取源码
     this.selectAnnotation() // 获取注释
   }
 
+  
 })

@@ -1,5 +1,7 @@
 <!--pages/skillTree/childrenTree/childrenTree.wxml-->
-
+<view class="bg">
+    <image class="img" src="../../../images/background.jpeg"></image>
+</view>
 <view class="container">
   <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas> 
   <view class="footer"></view>

@@ -7,6 +7,11 @@ export function test(method, data, loading) {
 export function readCode(method, data, loading) {
   return request("readCode", method, data, loading)
 }
+
+export function getCodeList(method, data, loading) {
+  return request("getCodeList", method, data, loading)
+}
+
 //添加注释
 export function addAnnotation(method, data, loading) {
   return request("addAnnotation", method, data, loading)

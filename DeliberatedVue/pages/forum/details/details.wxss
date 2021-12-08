@@ -119,28 +119,6 @@
     line-height: 26px;
     text-align: justify;
 }
-.textControlBox{
-    display: -webkit-box;
-    display: -webkit-flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10rpx 0;
-}
-.textControl{
-    font-size: 26rpx;
-    font-weight: 550;
-    color: #80d0ac;
-    line-height: 32rpx;
-    margin-right: 10rpx;
-}
-.three{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
 
 .end{
     margin-top: 60rpx;
@@ -159,7 +137,6 @@
     border-top: 2rpx solid #bbbbbb;
     display: flex;
     flex-direction: row;
-
 }
 .comInputBox .inputBox{
     margin-left: 3%;
@@ -172,12 +149,17 @@
     display: flex;
     align-items: center;
 }
-.comInputBox .comIconBox{
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.comInputBox .comIconBox image{
-    height: 64rpx;
+
+/* 发表评论按钮 */
+.commentSend{
+    height: 60rpx;
+    width: 120rpx;
+    background-color: #a8eed0;
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: rgb(105, 105, 105);
+    border-radius: 10rpx;
 }

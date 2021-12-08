@@ -1,2 +1,4 @@
 /* pages/catalogue/catalogue.wxss */
- 
+text {
+  margin-left: 22rpx;
+}
