@@ -59,10 +59,12 @@ Page({
         console.log("mode:", this.data.mode)
         if (this.data.mode == 1) {
             this.setData({
-                codePath: app.globalData.codeId,
+                codeId: app.globalData.codeId,
+                VueCode: app.globalData.code
             })
+            console.log("codeId", this.data.codeId )
             this.selectQuestion();
-            this.readCode();
+            // this.readCode();
             this.getScore();
         } else {
             this.setData({
@@ -107,7 +109,7 @@ Page({
         readCode("POST", data, true).then(res => {
             console.log("获取源码部分：", res)
             this.setData({
-                VueCode: res.data.code,
+                VueCode:res.data.code,
                 codeId: res.data.codeId
             })
             console.log(this.data.codeId)
@@ -116,6 +118,23 @@ Page({
             console.log("获取源码部分：", err)
         })
     },
+    // 根据codeId获取源码
+    // getCodeById(codeId){
+    //     let data = {
+    //         "codeId": codeId
+    //     }
+    //     console.log("getCodeById data",data)
+    //     locationCode("POST", data, true).then(res => {
+    //         console.log("location",res)
+    //         this.setData({
+    //             codePath: res.data.filePath
+    //         })
+            
+    //         this.readCode();
+    //     }).catch(err => {
+    //         console.log("获取源码路径", err)
+    //     })
+    // },
 
     rewardPickListener: function (e) {
         this.setData({
