@@ -29,38 +29,38 @@ export function selectQuestion(method, data, loading) {
 }
 
 export function addAnswer(method, data, loading) {
-    return request("addAnswer", method, data, loading)
+    return request("addAnswer", method, data)
 }
 
 export function selectAnswer(method, data, loading) {
-    return request("selectAnswer", method, data, loading)
+    return request("selectAnswer", method, data)
 }
 
 export function articleLikes(method, data, loading) {
-    return request("articleLikes", method, data, loading)
+    return request("articleLikes", method, data)
 }
 export function readCode(method, data, loading) {
-    return request("readCode", method, data, loading)
+    return request("readCode", method, data)
 }
 
 export function addHistory(method, data, loading) {
-    return request("addHistory", method, data, loading)
+    return request("addHistory", method, data)
 }
 
 export function selectArticles(method, data, loading) {
-    return request("selectArticles", method, data, loading)
+    return request("selectArticles", method, data)
 }
 
 export function articleReplyLikes(method, data, loading) {
-    return request("articleReplyLikes", method, data, loading)
+    return request("articleReplyLikes", method, data)
 }
 
 export function delQuestion(method, data, loading) {
-    return request("delQuestion", method, data, loading)
+    return request("delQuestion", method, data)
 }
 
 export function delArticleReply(method, data, loading) {
-    return request("delArticleReply", method, data, loading)
+    return request("delArticleReply", method, data)
 }
 
 export function getScore(method, data, loading) {
@@ -72,15 +72,15 @@ export function addScore(method, data, loading) {
 }
 
 export function locationCode(method, data, loading) {
-    return request("locationCode", method, data,loading)
+    return request("locationCode", method, data)
 }
 
 export function getQuestionIsAccept(method, data, loading) {
-    return request("getQuestionIsAccept", method, data,loading)
+    return request("getQuestionIsAccept", method, data)
 }
 
 export function acceptAnswer(method, data, loading) {
-    return request("acceptAnswer", method, data,loading)
+    return request("acceptAnswer", method, data)
 }
 export function delArticle(method, data, loading) {
     return request("delArticle", method, data, loading)

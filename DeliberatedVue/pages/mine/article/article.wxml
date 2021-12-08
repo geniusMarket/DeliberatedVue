@@ -6,7 +6,7 @@
         <view class="time">{{questionTime[index]}}</view>
         <view class="delete" bindtap="deleteToast" data-index="{{index}}">删除</view>
     </view>
-    <navigator url="../../forum/questPut/questPut?mode=2&myQuestionId={{question[index].questionId}}&myQuestCodeId={{codeId[index]}}&myQuestDetail={{question[index].title}}" class="questionBox">{{item.title}}</navigator>
+    <navigator url="../../forum/details/details?articleId={{question[index].articleId}}" class="questionBox">{{item.title}}</navigator>
     <scroll-view class="question" scroll-x="true" scroll-y="true" wx:if="{{item.codeId != 0}}">
         <htmltowxml text="{{VueCode[index]}}" type="md" bindWxmlTagATap="wxmlTagATap" highlightStyle="tomorrow">
         </htmltowxml>

@@ -36,6 +36,12 @@ Page({
 		this.selectArticle(true);
 	},
 
+	search() {
+		wx.navigateTo({
+			url: '/pages/forum/search/search',
+		})
+	},
+
 	// 查询帖子，获取所有的帖子列表  showRefresh：当刷新触发selectArticle函数时显示‘已刷新’
 	selectArticle(showRefresh) {
 		let data = {
@@ -134,14 +140,14 @@ Page({
 		  editable:true,
 		  placeholderText: '请输入要打赏的积分数',
 		  success(res){
-			  if(res.confirm && res.content <= that.data.myScore){
-				that.addScore(wx.getStorageSync('openId'),res.content,2)
-				that.addScore(that.data.postList[index].data.author,res.content,1)
-				setTimeout(() => {
+				if(res.content <= 0){
 					wx.showToast({
-					  title: '成功打赏:'+ res.content +'积分',
+						title: '输入的积分数额不符合要求',
+						icon:'none'
 					})
-				}, 200);
+				}else if(res.confirm && res.content <= that.data.myScore){
+					that.addScore(wx.getStorageSync('openId'),res.content,2)
+					that.addScore(that.data.postList[index].data.author,res.content,1)
 			  }else if(res.confirm && res.content > that.data.myScore){
 				  wx.showToast({
 					title: '积分余额不足',
