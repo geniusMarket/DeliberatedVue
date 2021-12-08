@@ -5,7 +5,7 @@
     </htmltowxml>
 </scroll-view>
 <view class="comment">
-    <image class="userImg" src="/images/v2_qbsucr.png" mode="scaleToFill" />
+    <image class="userImg" src="https://geniusmarket.top/getPicture/images/v2_qbsucr.png" mode="scaleToFill" />
     <view>
         <form bindsubmit="formSubmit" bindreset="formReset">
             <view class='all'>
@@ -30,15 +30,20 @@
             <view class='bg-white-ellipsis' bindtap='ellipsis' data-index="{{index}}">
                 <text class="show" wx:if="{{item.fold}}">{{item.is_show}}</text>
             </view>
-            <view class="likeareply">
-                <text class="pub_time">{{item.pub_time}}</text>
-                <view class="reply" data-index="{{index}}">
-                    <image class="replyimg" src="{{item.reply_src}}" mode="scaleToFill" data-index="{{index}}" bindtap="is_reply" />
-                </view>
-                <view class="like" data-index="{{index}}">
-                    <image class="likeimg" src="{{item.like_src}}" mode="scaleToFill" bindtap="is_like" data-index="{{index}}" />
-                    <text class="like_num" bindtap="is_like" data-index="{{index}}">{{item.like_num}}</text>
-                </view>
+
+            <view class='likeareply_all'>
+                    <view class="likeareply">
+                        <text class="pub_time">{{item.pub_time}}</text>
+                    </view>
+                    <view class="likeareply">
+                        <view class="reply" data-index="{{index}}">
+                            <image class="replyimg" src="{{item.reply_src}}" mode="scaleToFill" data-index="{{index}}" bindtap="is_reply" />
+                        </view>
+                        <view class="like" data-index="{{index}}">
+                            <image class="likeimg" src="{{item.like_src}}" mode="scaleToFill" bindtap="is_like" data-index="{{index}}" />
+                            <text class="like_num" bindtap="is_like" data-index="{{index}}">{{item.like_num}}</text>
+                        </view>
+                    </view>
             </view>
             <view wx:if="{{item.annotationId==annotationId}}">
                 <view class="userreply" wx:for="{{annotationReply}}" bindlongpress="delComment"

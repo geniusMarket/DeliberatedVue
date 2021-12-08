@@ -1,6 +1,10 @@
 /* pages/startUp/startUp.wxss */
+.container {
+  display: flex;
+  justify-content: center;
+}
 .logo {
-  margin-top: 150rpx;
+  margin-top: -40px;
   /*height: 780rpx;
   width: 320rpx;*/
   height: 425rpx;

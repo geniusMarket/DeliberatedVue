@@ -1,8 +1,22 @@
 /* pages/skillTree/childrenTree/childrenTree.wxss */
 page{
-  background-color: #153641;
+  background-color: #0a0b2a;
+  height: 100%;
 }
 
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.img {
+  height: 100%;
+  width: 100%; 
+  z-index: 99;
+}
 .footer {
   display: flex;
   align-items: flex-end;

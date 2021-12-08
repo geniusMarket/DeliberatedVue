@@ -90,7 +90,7 @@
 
 .favorite {
     position: absolute;
-    left: 130rpx;
+    left: 70rpx;
     top: 295rpx;
     font-size: 11px;
     display: flex;
@@ -105,7 +105,7 @@
 
 .myQuestion {
     position: absolute;
-    left: 320rpx;
+    left: 220rpx;
     top: 300rpx;
     font-size: 11px;
     display: flex;
@@ -120,7 +120,7 @@
 
 .history {
     position: absolute;
-    left: 550rpx;
+    left: 580rpx;
     top: 295rpx;
     font-size: 11px;
     display: flex;
@@ -131,6 +131,21 @@
 .historyImg {
     width: 60rpx;
     height: 60rpx;
+}
+
+.myArticle {
+    position: absolute;
+    left: 390rpx;
+    top: 293rpx;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myArticleImg {
+    width: 65rpx;
+    height: 65rpx;
 }
 
 .bottom {

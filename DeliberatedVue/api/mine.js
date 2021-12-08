@@ -19,3 +19,6 @@ export function getHistory(method, data, loading) {
 export function getQuestion(method, data, loading) {
     return request("myQuestion", method, data, loading)
 }
+export function getArticle(method, data, loading) {
+    return request("myArticle", method, data, loading)
+}

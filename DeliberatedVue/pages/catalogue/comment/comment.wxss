@@ -32,6 +32,8 @@
 
 .confirm_button{
   margin-right: 10rpx;
+  margin-bottom: 5rpx;
+  color: #ffffff;
 }
 
 .all{
@@ -95,6 +97,12 @@
   font-size: 25rpx;
   letter-spacing: 3rpx;
 }
+.likeareply_all{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .likeareply{
   display: flex;
 }
@@ -143,9 +151,8 @@
   background-color: #41b883;
   border-radius: 25rpx;
   height: 60rpx;
-  margin-left: 8rpx; 
-  font-weight: 300;
-  font-size: small;
+  margin-left: 8rpx;
+  font-size: 24rpx;
 }
 .form{
   display:flex;
