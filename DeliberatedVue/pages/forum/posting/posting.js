@@ -29,6 +29,9 @@ Page({
 		}
 		addArticle("POST", data, true).then(res => {
 			console.log(res)
+			wx.showToast({
+			  title: '发布成功',
+			})
 		}).catch(err => {
 			console.log(err)
 		})
@@ -50,8 +53,8 @@ Page({
 	sendPost() {
 		if (this.data.title && this.data.detail) {
 			this.addArticle();
-			wx.navigateTo({
-			  url: '../forum.js',
+			wx.switchTab({
+			  url: '../forum',
 			})
 		} else if (this.data.title) wx.showToast({
 			title: '帖子的内容不能为空',
